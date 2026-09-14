@@ -1,193 +1,295 @@
-# Couple Dynamic Map
+# Couple Dynamic Map (CDM2)
 
-The Couple Dynamic Map is a self-contained relationship assessment and reflection tool.
+Couple Dynamic Map is a private, browser-based relationship self-exploration tool for two partners.
 
-It is designed for two partners to complete independently and then compare their results using an anonymous exchange code.
+It helps couples understand how they communicate, what tends to trigger each person, what happens under stress, where their experiences differ, and what may help them relate more clearly.
 
-The tool is based on Jungian psychology, especially ideas around projection, shadow, psychological type, complexes, individuation, and the relationship quaternio. It also includes concepts from other established couples therapy frameworks, including attachment theory, Emotionally Focused Couple Therapy, Integrative Behavioral Couple Therapy, mentalization, demand-withdraw dynamics, conflict repair, acceptance and change, intimacy, shared meaning, and external stress.
-
-The goal is not to judge whether a relationship is good or bad.
-
-The goal is to help two people understand:
-
-- how each person processes conflict
-- what tends to trigger each person
-- how defensiveness, withdrawal, pressure, fixing, reassurance-seeking, or fatalistic thinking can develop
-- where projection or unconscious patterns may be influencing the interaction
-- how attachment needs may affect communication
-- how the couple repairs after conflict
-- where differences may need acceptance rather than correction
-- what strengths already exist in the relationship
-- what practical changes may reduce repeated conflict
+The tool uses Jungian psychology as its main depth-psychology framework, especially ideas around projection, shadow, complexes, psychological type, differentiation, and individuation. It also draws on established couples therapy concepts from attachment theory, Emotionally Focused Couple Therapy (EFT), Integrative Behavioral Couple Therapy (IBCT), mentalization, demand-withdraw research, conflict repair, acceptance and change, intimacy, shared meaning, and external stress.
 
 ## Important
 
-This is a structured self-exploration tool.
+This is a structured self-exploration and relationship formulation tool.
 
-It is not a clinically validated psychological test.
+It is **not** a clinically validated psychological test.
 
-It does not diagnose mental health conditions, personality disorders, relationship disorders, or compatibility.
+It does not diagnose:
 
-It is not a substitute for professional couples therapy, psychotherapy, medical care, or crisis support.
+- mental health conditions
+- personality disorders
+- attachment styles
+- relationship disorders
+- abuse
+- compatibility
 
-The results should be treated as hypotheses for discussion, not as facts about either partner.
+It is not a substitute for professional couples therapy, psychotherapy, medical care, legal advice, or crisis support.
+
+The results should be treated as prompts for discussion and reflection, not as facts or verdicts.
+
+## What CDM2 is designed to answer
+
+The tool does not ask:
+
+- Who is the problem?
+- Who is right?
+- Are we compatible?
+- Is this relationship healthy or unhealthy?
+
+Instead, it helps explore:
+
+1. What is working well between us?
+2. What tends to activate each person?
+3. What does each person tend to do when stressed?
+4. How do those reactions combine into a repeated cycle?
+5. Where do we experience the same relationship differently?
+6. What may each person need to work on individually?
+7. What may need to change at the relationship level?
+8. What may need repair, acceptance, negotiation, or a boundary?
 
 ## How it works
 
 Each partner completes the assessment separately.
 
-The assessment contains 108 questions across 14 areas, including:
+The core assessment contains 57 questions and uses a simple five-point scale:
 
-- psychological type and processing style
-- ego-to-ego communication
-- mentalization and perspective-taking
-- persona and shadow
-- projection
-- emotional and complex hijacking
-- attachment dynamics
-- conflict roles
+- Almost never
+- Rarely
+- Sometimes
+- Often
+- Almost always
+
+Unless a question says otherwise, responses should reflect the last 8 weeks rather than one unusually good or bad day.
+
+The tool separates:
+
+- how I behave
+- how I experience the relationship
+- how I react under stress
+- how I experience my partner
+- what may belong to the wider relationship system
+
+This matters because two people can be in the same relationship and still experience it very differently.
+
+## Core areas
+
+The core assessment covers:
+
+- communication
+- emotional availability
 - repair after conflict
+- differentiation
+- attachment-related reactions
+- demand and withdrawal
+- defensiveness
+- fixing and problem-solving
+- fatalistic or global thinking during conflict
 - acceptance versus change
-- everyday connection
-- intimacy and sexuality
-- shared meaning and teamwork
-- individuation and personal responsibility
+- positive connection
+- teamwork
+- relationship security
+- shared experience of the relationship
 
-After completing the assessment, each person receives an anonymous Couple Dynamic Map code.
+There is no overall compatibility percentage.
 
-The code contains only calculated domain scores. It does not include names, email addresses, individual answers, or the private safety screen.
+There is no score that means something is definitely a problem. The scores are for comparison and reflection, not diagnosis.
 
-Each partner can copy their code and send it to the other person.
+Scores are descriptive only.
 
-Both partners can then paste the two codes into the Couple Map section.
+## Couple comparison
 
-Because the codes are processed in a consistent order, both partners should receive the same Profile A and Profile B comparison.
+After both partners complete the core assessment, each person can generate a CDM2 Share Code.
+
+The Share Code contains only summarized domain scores.
+
+It does **not** contain:
+
+- names
+- email addresses
+- raw question responses
+- safety answers
+- Jungian reflection notes
+- conflict-mapping notes
+- culture and context notes
+
+Each partner can exchange their Share Code and paste both into the Couple Map section.
+
+The tool then creates a locally oriented comparison on each device. Your own results appear as **Myself**, and the imported Share Code appears as **My Partner**. Your partner sees the same underlying relationship data from their own point of view.
+
+A stable random profile key is kept in the background as a technical identifier for continuity across future reassessments. It is not used as the main label shown to the couple.
 
 ## What the Couple Map shows
 
-The Couple Map does not generate a compatibility percentage.
+The Couple Map compares the two partners side by side.
 
-Instead, it looks for patterns such as:
+It highlights:
 
-- pursue and withdraw
-- press and defend
-- fixing versus wanting to be understood
-- reassurance-seeking versus distancing
-- global or fatalistic thinking during conflict
-- projection and complex amplification
-- differences in communication tempo
-- differences in emotional processing
-- differences in problem-solving style
+- areas where both partners report similar experiences
+- areas where their experiences differ
+- likely stress roles
+- likely interaction loops
+- individual areas for reflection
+- shared relationship areas that may need attention
+- strengths and protective factors
+- areas where acceptance may be more realistic than trying to change the other person
 
-It also highlights:
+It does not average away important differences.
 
-- protective factors
-- pressure points
-- relationship strengths
-- likely conflict loops
-- areas where each person may need more self-reflection
-- practical ways to interrupt repeated patterns
+For example, if one partner experiences repair as strong and the other experiences it as poor, the tool shows that difference directly rather than turning it into one middle score.
+
+## Interaction patterns
+
+The tool may flag patterns worth exploring, such as:
+
+- Pursue ↔ Withdraw
+- Press ↔ Defend
+- Connection Alarm ↔ Distance
+- Solve ↔ Be Understood
+- Globalize ↔ Press
+- Projection or complex amplification
+
+These are **hypotheses**, not diagnoses.
+
+They are generated from combinations of reported behavior.
+
+A flagged pattern means:
+
+> This may be worth discussing.
+
+It does not mean:
+
+> This is definitely what is happening.
 
 ## Jungian foundation
 
-The main psychological framework is Jungian.
+Jungian psychology remains the main depth-psychology framework.
 
-The tool draws on ideas such as:
+The tool does not try to numerically measure unconscious processes such as projection, shadow, or individuation.
+
+Instead, it uses these ideas as guided questions.
 
 ### Ego-to-ego relationship
 
-Can two people speak to each other as separate individuals without immediately becoming defensive, controlling, withdrawn, or overwhelmed?
+Can two people stay in contact as separate individuals during disagreement?
+
+Can each person hear the other without immediately moving into defense, control, withdrawal, or collapse?
+
+### Persona
+
+What image of myself do I most want my partner to see?
+
+Examples may include:
+
+- competent
+- calm
+- caring
+- rational
+- strong
+- desirable
+- independent
+- dependable
 
 ### Shadow
 
-What qualities do we find difficult to recognize in ourselves?
+What qualities are harder for me to admit or be seen as having?
 
-These may include dependency, aggression, helplessness, selfishness, vulnerability, control, neediness, or fear.
+Examples may include:
+
+- dependency
+- anger
+- jealousy
+- helplessness
+- selfishness
+- neediness
+- control
+- weakness
 
 ### Projection
 
-What part of what we experience in our partner belongs to the actual person, and what part may be added by our own expectations, fears, history, or unconscious material?
+What part of what I see in my partner belongs to the actual person?
+
+What part may be added by my own fears, expectations, history, or unconscious material?
 
 ### Complexes
 
-Certain situations can trigger emotionally charged patterns that are much larger than the immediate event.
+Do some situations trigger a reaction that feels much bigger than the event itself?
 
-When this happens, the couple may stop responding to the current issue and begin repeating an older psychological pattern.
-
-### Psychological type
-
-People naturally differ in how they process information, make decisions, communicate, and respond under stress.
-
-Differences are not automatically problems.
-
-Problems often develop when one partner assumes that their own way of processing is the correct or normal way.
+Does the same emotional pattern appear across different arguments?
 
 ### Individuation
 
-The deeper aim is not perfect harmony.
+Can I stay connected while remaining a separate person?
 
-It is becoming more conscious of what belongs to oneself, what belongs to the partner, and what belongs to the interaction between the two.
+Can I take responsibility for my own inner life without making my partner responsible for fixing it?
 
-A mature relationship allows both people to remain separate individuals while continuing to build connection.
+Can I tolerate difference, uncertainty, disappointment, and imperfection without turning them automatically into a threat to the whole relationship?
 
-## Other frameworks
+## Other therapeutic frameworks
 
-The tool also incorporates ideas from several modern couples therapy traditions.
-
-These include:
+CDM2 also draws on several established relationship frameworks.
 
 ### Attachment theory
 
-How secure does the relationship feel?
+The tool explores how each person responds to:
 
-What happens when one person seeks reassurance, closeness, space, or emotional distance?
+- distance
+- reassurance
+- uncertainty
+- emotional availability
+- fear of losing connection
 
 ### Emotionally Focused Couple Therapy
 
-What negative cycle develops when both partners are trying to protect something vulnerable underneath the conflict?
+The tool looks for repeated negative cycles in which both people are trying to protect something vulnerable underneath the conflict.
 
 ### Integrative Behavioral Couple Therapy
 
-Which differences can realistically change, and which may need acceptance, management, or negotiation?
+The tool distinguishes between:
+
+- what can reasonably change
+- what may need acceptance
+- what may need negotiation
+- what may need a boundary
 
 ### Mentalization
 
-Can each partner remain curious about the other person's mind instead of assuming they already know what the other person thinks or intends?
+The tool encourages each person to remember:
+
+> I do not automatically know what is happening in my partner's mind.
+
+It supports curiosity, checking assumptions, and separating facts from interpretation.
 
 ### Demand-withdraw dynamics
 
-Does one person pursue, question, pressure, or insist while the other withdraws, shuts down, delays, or disengages?
+The tool looks at patterns where one person:
+
+- presses
+- questions
+- pursues
+- insists
+
+while the other:
+
+- withdraws
+- delays
+- shuts down
+- distances
+
+Either partner can take either role.
 
 ### Repair
 
-Can the couple recognize when a conflict is escalating, pause, return to the issue, apologize, clarify, and restore connection?
+The tool looks at whether partners can:
 
-## Privacy
+- pause
+- return to a conversation
+- apologize clearly
+- recognize when the other person is trying to repair
+- restore warmth after conflict
 
-The tool is designed to work entirely in the browser.
+## Private safety check-in
 
-There is:
+CDM2 includes a separate private safety check-in.
 
-- no account
-- no login
-- no database
-- no analytics
-- no cookies
-- no external server
-- no external JavaScript library
-- no personal information required
-
-Assessment answers remain on the device unless the user chooses to share their generated Couple Dynamic Map code.
-
-The shared code contains only summarized scores.
-
-It is not encrypted, so it should not be treated as a secure method for sharing highly sensitive information.
-
-## Private safety screen
-
-The tool contains a separate safety screen.
-
-It asks about issues such as:
+It asks about warning signs such as:
 
 - fear of a partner
 - coercive control
@@ -197,108 +299,307 @@ It asks about issues such as:
 - threats
 - retaliation
 
-These answers are never included in the shared Couple Dynamic Map code.
+These answers are never added to the Share Code.
 
-If serious safety concerns are identified, the tool does not treat them as ordinary communication problems.
+The safety section does not block code generation or change the couple result in a way that could reveal a private answer to the other partner.
 
-In those situations, professional and real-world support may be more appropriate than a joint relationship exercise.
+If serious safety concerns are present, joint relationship exercises may not be the safest next step.
 
-## How to use
+The tool may suggest confidential professional or specialist support.
 
-1. Open the tool in a browser.
-2. Each partner completes the assessment independently.
-3. Do not discuss answers while completing it.
-4. Generate the anonymous Couple Dynamic Map code.
-5. Exchange codes.
-6. Paste both codes into the Couple Map section.
-7. Review the shared map together.
-8. Focus first on patterns and interaction loops rather than deciding who is right.
-9. Use the Conflict Episode Mapper to examine a real disagreement.
-10. Revisit the map over time if the relationship changes.
+The safety check-in is not a validated intimate partner violence screening tool.
 
-## How to discuss the results
+## Non-symmetry principle
 
-The tool works best when both partners treat the results as prompts for curiosity.
+A relationship is interactive, but responsibility is not always equal.
+
+A repeated cycle can involve both people without both people being equally responsible for a specific harmful act.
+
+For example:
+
+- one person may have lied
+- one person may have violated an agreement
+- one person may have behaved aggressively
+- one person may be coercive
+
+The tool does not assume every problem is 50/50.
+
+## Optional modules
+
+CDM2 includes optional deeper sections.
+
+### Processing style
+
+A Jung-inspired module looks at preferences such as:
+
+- thinking aloud versus thinking privately
+- focusing on facts versus wider patterns
+- solving problems versus understanding impact
+- needing immediate discussion versus needing time first
+
+These are communication preferences, not formal personality types.
+
+### Intimacy and sexuality
+
+This module explores:
+
+- affection
+- sexual communication
+- desire differences
+- sexual pressure
+- whether sex is being used as proof of love, security, or adequacy
+- comfort discussing needs and boundaries
+
+The tool also recognizes that sexual desire can be affected by:
+
+- health
+- medication
+- hormones
+- pain
+- fatigue
+- stress
+- trauma
+- parenthood
+- ageing
+- ordinary variation
+
+### External stress
+
+This module looks at pressures such as:
+
+- work
+- money
+- health
+- children
+- family
+- caring responsibilities
+- relocation
+- major life changes
+
+External stress is treated as context, not as proof that the relationship itself is failing.
+
+### Culture and life context
+
+A non-scored context section can include:
+
+- culture
+- family expectations
+- religion or worldview
+- gender-role expectations
+- parenting expectations
+- financial norms
+- work and career priorities
+- privacy and independence
+- migration or intercultural differences
+- disability or chronic illness
+- neurodivergence
+- major life transitions
+
+## Jungian Depth Map
+
+The Jungian Depth Map is qualitative.
+
+It does not generate a projection score, shadow score, or individuation score.
+
+Instead, it asks questions such as:
+
+- What image of yourself feels threatened in conflict?
+- What quality in yourself is hardest to admit?
+- Who does your partner seem to become in your mind?
+- What do you think the event means?
+- What familiar emotional situation does this remind you of?
+- What feeling are you trying to make your partner remove?
+- What part belongs to you?
+- What real relationship issue remains after separating projection from reality?
+
+The purpose is to create hypotheses for reflection, not conclusions about the unconscious.
+
+## Conflict Episode Mapper
+
+The Conflict Episode Mapper helps one person slow down a real disagreement.
+
+It walks through:
+
+1. What happened?
+2. What did I feel?
+3. What did I think it meant?
+4. What does my partner say they meant?
+5. What evidence supports or challenges my interpretation?
+6. What role did I move into?
+7. What fear, need, or vulnerable feeling was underneath?
+8. What did my response bring out in my partner?
+9. What part belongs to me?
+10. What real issue remains between us?
+
+At the end, the user considers whether the next task is:
+
+- repair
+- change
+- a boundary
+- acceptance
+
+## How to use the tool well
+
+Each partner should complete the assessment independently.
+
+Do not try to predict or influence the other person's answers.
+
+When reviewing the results together:
+
+- stay curious
+- do not use scores as weapons
+- do not try to prove who is healthier
+- treat differences in experience as useful information
+- ask what each pattern means in real life
+- focus on one interaction loop at a time
+- separate behavior from identity
+- separate impact from intention
+- separate responsibility from self-punishment
+- separate acceptance from resignation
 
 Useful questions include:
 
 - Does this description feel accurate?
 - Where does it miss something important?
-- What happens inside me before I react?
+- What tends to happen just before I react?
 - What am I assuming about you?
-- What do I need in that moment?
 - What are you actually trying to communicate?
-- What behaviour of mine makes the cycle worse?
-- What behaviour of yours activates me?
-- What can I take responsibility for?
+- What behavior of mine makes the cycle worse?
+- What behavior of yours activates me?
+- What belongs to me to work on?
+- What belongs to us to work on together?
 - What difference between us may need acceptance rather than correction?
-- What would help us stay in an ego-to-ego conversation for longer?
 
-Avoid using the results as weapons.
+Avoid statements such as:
 
-Statements such as:
+> Your score proves you are the problem.
 
-"Your attachment score proves you are the problem."
+> You are projecting.
 
-"You are projecting."
+> This is your shadow.
 
-"This is your shadow."
-
-"You are avoidant."
-
-are not the intended use of the tool.
+> You are avoidant.
 
 A better approach is:
 
-"When this happens, I notice that I experience you this way, and I think part of that reaction may belong to me."
+> When this happens, I notice that I experience you in this way. I think part of that reaction may belong to me, and I also want to understand what is really happening between us.
 
-## Deployment on GitHub Pages
+## Privacy
 
-The tool is a single HTML file.
+The tool is designed to run entirely in the browser.
 
-To deploy it:
+The assessment code itself does not send questionnaire responses to a server or analytics service.
 
-1. Create a GitHub repository.
-2. Rename the HTML file to `index.html`.
-3. Upload it to the root of the repository.
-4. Open the repository Settings.
-5. Go to Pages.
-6. Select the branch containing `index.html`.
-7. Save the settings.
-8. GitHub will provide a public URL for the tool.
+There is:
+
+- no login
+- no user account
+- no application database
+- no external analytics
+- no external JavaScript library required
+- no personal information required
+
+However, standard browser and hosting metadata may still exist when the page is served through GitHub Pages or another hosting provider.
+
+The Share Code does not contain names or direct identifiers, but it is not encrypted and should not be treated as anonymous in an absolute sense.
+
+The person receiving the code will usually know who sent it.
+
+The checksum is designed to catch accidental copying errors. It is not an anti-tampering or authentication system.
+
+Use the built-in **Clear all responses** control when needed.
+
+The **Quick hide** control can move away from the tool quickly, but it does not erase browser history or guarantee privacy on a monitored device.
+
+## Technical design
+
+CDM2 is a single self-contained HTML file.
+
+It uses:
+
+- HTML
+- CSS
+- JavaScript
 
 No build process is required.
 
 No package manager is required.
 
-No server is required.
+No backend is required.
+
+The Share Code contains only summarized measures needed to build the couple comparison.
+
+## GitHub Pages deployment
+
+1. Create a GitHub repository.
+2. Rename the HTML file to `index.html`.
+3. Upload it to the root of the repository.
+4. Open **Settings**.
+5. Open **Pages**.
+6. Select the branch containing `index.html`.
+7. Save the configuration.
+8. GitHub will provide the public URL.
+
+No additional files are required to run the tool.
 
 ## Limitations
 
-Human relationships are more complicated than any questionnaire.
+Human relationships are more complex than any questionnaire.
 
-Scores can be affected by:
+Results can be affected by:
 
-- mood
-- recent conflict
-- interpretation of questions
+- current mood
+- recent arguments
 - self-awareness
 - defensiveness
 - idealized self-image
-- cultural background
+- stress
 - relationship stage
-- current stress
+- culture
+- health
+- neurodivergence
+- life circumstances
+- interpretation of the questions
 
-For that reason, the map should never be treated as a final verdict.
+The tool uses original questions inspired by established relationship research and clinical frameworks.
 
-Its value is in helping two people see patterns that may otherwise remain difficult to name.
+It does not reproduce or inherit the validation of established measures such as the Couple Satisfaction Index, Experiences in Close Relationships measures, or Communication Patterns Questionnaire.
+
+The tool should remain described as a **structured self-exploration and couple formulation tool** unless and until it undergoes formal psychometric and clinical validation.
+
+## Intended future validation
+
+A proper validation process would ideally include review from experts in:
+
+- Jungian analytical psychology
+- couples and family therapy
+- Emotionally Focused Therapy
+- Integrative Behavioral Couple Therapy
+- psychometrics
+- intimate partner violence and coercive control
+- sex therapy
+- culturally responsive relationship practice
+
+It would also require testing with real couples for:
+
+- clarity
+- usability
+- internal consistency
+- test-retest reliability
+- factor structure
+- partner-level differences
+- convergent validity
+- cultural fairness
+- unintended harm
+- response fatigue
+- usefulness in real conversations
 
 ## Final principle
 
-The purpose of the Couple Dynamic Map is not to determine who is the problem.
+The purpose of Couple Dynamic Map is not to decide who is the problem.
 
-It is to help two people understand what happens between them, what each person brings into the interaction, what belongs to the relationship itself, and where greater awareness may create more choice.
+It is to help two people understand what happens between them, what each person brings into the interaction, what may belong to the wider relationship system, and where greater awareness may create more choice.
 
 The central question is:
 
-**Where does conscious relationship turn into unconscious reaction, and how can both partners become more aware of that transition?**
+**Where does conscious relationship turn into automatic reaction, and what can each person do to return to a more conscious way of relating?**
