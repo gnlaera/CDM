@@ -98,17 +98,16 @@ Scores are descriptive only.
 
 After both partners complete the core assessment, each person can generate a CDM2 Share Code.
 
-The Share Code contains only summarized domain scores.
+The Share Code contains summarized core scores, summary results from any optional scored modules you complete, and any culture and life-context factors you choose to tick.
 
 It does **not** contain:
 
 - names
 - email addresses
-- raw question responses
-- safety answers
+- raw core-question responses
+- free-text culture or context notes
 - Jungian reflection notes
 - conflict-mapping notes
-- culture and context notes
 
 Each partner can exchange their Share Code and paste both into the Couple Map section.
 
@@ -285,11 +284,13 @@ The tool looks at whether partners can:
 - recognize when the other person is trying to repair
 - restore warmth after conflict
 
-## Private safety check-in
+## Safety checklist
 
-CDM2 includes a separate private safety check-in.
+At the very end of the page, CDM2 includes a collapsed **Safety checklist**.
 
-It asks about warning signs such as:
+It is not a questionnaire and does not record any safety answers.
+
+It explains when a person should not use the tool as a shared couple exercise, including situations involving:
 
 - fear of a partner
 - coercive control
@@ -298,16 +299,10 @@ It asks about warning signs such as:
 - monitoring
 - threats
 - retaliation
+- pressure to reveal answers or Share Codes
+- concern that the device itself may be monitored
 
-These answers are never added to the Share Code.
-
-The safety section does not block code generation or change the couple result in a way that could reveal a private answer to the other partner.
-
-If serious safety concerns are present, joint relationship exercises may not be the safest next step.
-
-The tool may suggest confidential professional or specialist support.
-
-The safety check-in is not a validated intimate partner violence screening tool.
+If these conditions apply, a joint relationship exercise may increase risk or give a controlling partner more information to use. The checklist instead suggests private professional or specialist support.
 
 ## Non-symmetry principle
 
@@ -326,7 +321,9 @@ The tool does not assume every problem is 50/50.
 
 ## Optional modules
 
-CDM2 includes optional deeper sections.
+CDM2 includes optional deeper sections. Each one opens directly below its **Open** button. If you start a scored optional module, complete all of its questions before creating a Share Code so its result can be included consistently.
+
+When both partners complete the same optional module, the couple map compares the two results. If only one person completes it, the combined map says that there is not enough information for a two-person comparison.
 
 ### Processing style
 
@@ -376,7 +373,7 @@ This module looks at pressures such as:
 - relocation
 - major life changes
 
-External stress is treated as context, not as proof that the relationship itself is failing.
+External stress is treated as context, not as proof that the relationship itself is failing. The Share Code carries grouped stress summaries so the couple map can compare practical load, health and energy, family and caring duties, and major transitions without sharing every individual answer.
 
 ### Culture and life context
 
@@ -394,6 +391,8 @@ A non-scored context section can include:
 - disability or chronic illness
 - neurodivergence
 - major life transitions
+
+Selected context factors are included in the Share Code so the couple map can show which factors both people selected and which were selected by only one person. The free-text context note is never included.
 
 ## Jungian Depth Map
 
@@ -527,7 +526,7 @@ No package manager is required.
 
 No backend is required.
 
-The Share Code contains only summarized measures needed to build the couple comparison.
+The Share Code contains summarized measures needed to build the couple comparison, plus selected culture and life-context labels. Free-text notes remain on the local device.
 
 ## GitHub Pages deployment
 
