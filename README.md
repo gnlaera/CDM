@@ -106,8 +106,8 @@ It does **not** contain:
 - email addresses
 - raw core-question responses
 - free-text culture or context notes
-- Jungian reflection notes
-- conflict-mapping notes
+- Jungian Depth Map selections or notes
+- Conflict Episode Mapper selections or notes
 
 Each partner can exchange their Share Code. To build the Couple Map, place your own Share Code in the first box and your partner's Share Code in the second box. If you are still on the page where you completed the questionnaire, the tool can create your own code automatically. If you return later, you can paste a Share Code you saved earlier instead of retaking the questionnaire.
 
@@ -119,9 +119,20 @@ A stable random profile key is kept in the background as a technical identifier 
 
 ## What the Couple Map shows
 
-The Couple Map compares the two partners side by side.
+The Couple Map turns the two sets of answers into plain-English relationship insights first. The numbers stay available underneath so each partner can see what the interpretation is based on.
 
-It highlights:
+The main result is organised around:
+
+- your relationship at a glance
+- what seems to be working
+- where the two of you may be experiencing the same relationship differently
+- the main interaction pattern worth testing
+- what may help each person individually
+- what may help you together
+
+The wording is deliberately cautious. The tool uses phrases such as **“your answers suggest”**, **“a pattern worth testing”**, and **“may be worth exploring”** rather than presenting an interpretation as a fact.
+
+It also highlights:
 
 - areas where both partners report similar experiences
 - areas where their experiences differ
@@ -400,44 +411,51 @@ Selected context factors are included in the Share Code so the couple map can sh
 
 The Jungian Depth Map is qualitative.
 
-It does not generate a projection score, shadow score, or individuation score.
+It does not generate a projection score, shadow score, or individuation score. Instead, each prompt offers a set of plain-English choices grounded in the Jungian ideas being explored. The user can select several choices and add their own wording if needed.
 
-Instead, it asks questions such as:
+The choices cover themes such as:
 
-- What image of yourself feels threatened in conflict?
-- What quality in yourself is hardest to admit?
-- Who does your partner seem to become in your mind?
-- What do you think the event means?
-- What familiar emotional situation does this remind you of?
-- What feeling are you trying to make your partner remove?
-- What part belongs to you?
-- What real relationship issue remains after separating projection from reality?
+- the qualities I most want my partner to see in me
+- the qualities I most fear being seen as having
+- shadow qualities that are harder to own
+- who my partner can seem to become in my mind during conflict
+- the role I can move into in response
+- older emotional patterns that may be touched
+- feelings I most want the conflict to remove
+- meanings I may be adding to the event
+- the real relationship issue that may remain
+- possible personal growth tasks
 
-The purpose is to create hypotheses for reflection, not conclusions about the unconscious.
+The **Build Jungian reflection** button turns the selected themes into a short natural-language reflection. It uses cautious wording and treats the result as a working hypothesis, not an interpretation of the unconscious.
+
+The selections and notes remain on the device and are not included in the Share Code.
 
 ## Conflict Episode Mapper
 
-The Conflict Episode Mapper helps one person slow down a real disagreement.
+The Conflict Episode Mapper helps one person slow down a real disagreement using curated multiple-choice prompts. The user can select several choices and add their own wording if needed.
 
 It walks through:
 
 1. What happened?
-2. What did I feel?
-3. What did I think it meant?
-4. What does my partner say they meant?
+2. What did I feel first?
+3. What did I decide it meant?
+4. What did my partner actually say they meant?
 5. What evidence supports or challenges my interpretation?
-6. What role did I move into?
-7. What fear, need, or vulnerable feeling was underneath?
-8. What did my response bring out in my partner?
-9. What part belongs to me?
-10. What real issue remains between us?
+6. What protective role did I move into?
+7. What softer fear or need was underneath?
+8. What did my response seem to bring out in my partner?
+9. What belongs to me to work on?
+10. What real issue remains?
 
-At the end, the user considers whether the next task is:
+The **Build episode summary** button turns the selected entries into a plain-English summary and suggests the likely next kind of task, such as:
 
 - repair
-- change
+- concrete change or negotiation
 - a boundary
-- acceptance
+- acceptance of a real difference
+- gathering more information before deciding
+
+The summary does not decide who was right and does not assume equal responsibility. Episode selections and notes remain on the device and are not included in the Share Code.
 
 ## How to use the tool well
 
