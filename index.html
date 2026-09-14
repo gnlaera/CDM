@@ -6,418 +6,414 @@
 <title>Couple Dynamic Map</title>
 <style>
 :root{
-  --bg:#f3f0e9;--paper:#fffdf8;--ink:#202624;--muted:#66706c;--line:#d8d2c7;
-  --accent:#304d49;--accent2:#7b5e42;--good:#315c4b;--warn:#8b6337;--risk:#804747;
-  --soft:#ece8df;--blue:#40586c;--shadow:0 12px 34px rgba(35,39,37,.08)
+  --bg:#f4f1ea;--paper:#fffdf9;--ink:#202624;--muted:#66706c;--line:#d9d2c7;
+  --accent:#304d49;--accent2:#775e45;--soft:#ece8df;--soft2:#f7f4ed;--focus:#25453f;
+  --warnbg:#fbf4e9;--warnline:#c89b60;--shadow:0 10px 28px rgba(30,35,33,.07)
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-header{background:linear-gradient(135deg,#253936,#3d5853);color:#fff;padding:44px 20px 34px}
-.wrap{max-width:1120px;margin:auto;padding:0 20px}header .wrap{padding:0}
-h1,h2,h3{font-family:Georgia,serif}h1{font-size:clamp(2.1rem,4vw,3.5rem);line-height:1.04;margin:0 0 12px}h2{font-size:1.7rem;margin:0 0 12px}h3{font-size:1.15rem;margin:0 0 8px}p{margin:.45rem 0 1rem}
-.lede{max-width:900px;font-size:1.08rem;color:#edf3f1}.toolbar,.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
-button,.btn{appearance:none;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:9px;padding:10px 14px;font-weight:750;cursor:pointer;font-size:.94rem}
-button.secondary{background:transparent;color:var(--accent)}button.ghost{background:transparent;border-color:#ffffff88;color:#fff}button:disabled{opacity:.45;cursor:not-allowed}
-main{padding:28px 0 72px}.card,.notice{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.card{padding:20px}.notice{padding:18px 20px;margin-bottom:20px}.notice strong{color:var(--accent)}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.span-3{grid-column:span 3}@media(max-width:850px){.span-8,.span-6,.span-4,.span-3{grid-column:span 12}}
-.section-card{margin:20px 0}.section-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:12px}.section-kicker{font-size:.77rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800}.section-note,.small{color:var(--muted);font-size:.88rem}.section-note{max-width:820px}
-.framework{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}.framework .tag{display:inline-block;padding:3px 7px;border-radius:99px;background:var(--soft);font-size:.72rem;font-weight:800;margin-bottom:7px}
-.progress-wrap{position:sticky;top:0;z-index:30;background:rgba(243,240,233,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:9px 0}.progress-inner{max-width:1120px;margin:auto;padding:0 20px;display:flex;align-items:center;gap:12px}.progress{flex:1;height:10px;background:#ddd7ce;border-radius:10px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--accent);transition:width .2s}
-.question{padding:17px 0;border-top:1px solid var(--line)}.question:first-of-type{border-top:0}.qtext{font-weight:650;margin-bottom:11px}.qnum{display:inline-block;min-width:2.4em;color:var(--muted);font-weight:800}
-.likert{display:grid;grid-template-columns:1fr repeat(5,42px) 1fr;gap:8px;align-items:center}.likert .pole{font-size:.82rem;color:var(--muted)}.likert .pole.right{text-align:right}.likert label{display:grid;place-items:center}.likert input{position:absolute;opacity:0;pointer-events:none}.likert span.choice{display:grid;place-items:center;width:38px;height:38px;border:1px solid #bbb5ab;border-radius:50%;background:#fff;cursor:pointer;font-size:.84rem;font-weight:800}.likert input:checked+span.choice{background:var(--accent);color:#fff;border-color:var(--accent);transform:scale(1.04)}
-.safety-item{padding:13px 0;border-top:1px solid var(--line)}.safety-item:first-of-type{border-top:0}.yn{display:flex;gap:8px;margin-top:7px}.yn label{border:1px solid var(--line);border-radius:9px;padding:7px 11px;background:#fff;cursor:pointer}.yn input{margin-right:6px}
-.callout{border:1px solid #cbc4b8;background:#f7f3eb;border-radius:12px;padding:14px}.callout.risk{border-color:#d4aaaa;background:#fbefef}.callout.good{border-color:#b9d0c5;background:#eef6f1}.callout.warn{border-color:#dcc7a8;background:#faf4e9}
-.score-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:760px){.score-grid{grid-template-columns:1fr}.likert{grid-template-columns:1fr repeat(5,36px) 1fr;gap:4px}.likert span.choice{width:33px;height:33px}}
-.score-card{border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px}.score-title{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.bar{height:10px;background:var(--soft);border-radius:12px;overflow:hidden;margin:8px 0 5px}.bar>i{display:block;height:100%;background:var(--accent);width:0}.bar.risk>i{background:var(--risk)}.bar.warn>i{background:var(--warn)}
-.pill{display:inline-block;padding:3px 8px;border-radius:99px;font-size:.74rem;font-weight:800;background:var(--soft)}.pill.good{background:#e3eee9;color:var(--good)}.pill.warn{background:#f3e9dc;color:var(--warn)}.pill.risk{background:#f1dfdf;color:var(--risk)}
-.token-box{width:100%;min-height:78px;border:1px solid var(--line);border-radius:10px;padding:12px;background:#f9f7f2;font:600 .91rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}textarea,input[type=text]{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff;color:var(--ink);font:inherit}
-.compare-row{display:grid;grid-template-columns:190px 1fr 58px 58px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}.compare-row:first-child{border-top:0}.dualbar{height:14px;background:var(--soft);border-radius:10px;position:relative;overflow:hidden}.dualbar .a,.dualbar .b{position:absolute;left:0;height:50%;width:0}.dualbar .a{top:0;background:#38534e}.dualbar .b{bottom:0;background:#967353}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.profile-tag{font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.insight{border-left:4px solid var(--accent);padding:10px 12px;background:#f4f7f5;border-radius:8px;margin:9px 0}.insight.warn{border-left-color:var(--warn);background:#fbf6ef}.insight.risk{border-left-color:var(--risk);background:#fbf0f0}
-.pillar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}@media(max-width:900px){.pillar-grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.pillar-grid{grid-template-columns:1fr}}.pillar{border:1px solid var(--line);background:#fff;border-radius:12px;padding:13px}.pillar .num{font:700 1.55rem Georgia,serif;color:var(--accent)}
-.matrix{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:760px){.matrix{grid-template-columns:1fr}}.matrix .cell{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff}.matrix .cell strong{display:block;margin-bottom:4px}
-.badges{display:flex;flex-wrap:wrap;gap:7px}.badge{border:1px solid var(--line);border-radius:999px;padding:5px 9px;background:#fff;font-size:.8rem}.hidden{display:none!important}.footer-note{margin-top:28px;color:var(--muted);font-size:.86rem}details{border-top:1px solid var(--line);padding:12px 0}details:first-of-type{border-top:0}summary{cursor:pointer;font-weight:750}.ref{font-size:.84rem;color:var(--muted)}
-@media print{header,.progress-wrap,#assessment,.no-print,#safety{display:none!important}body{background:#fff}.card,.notice{box-shadow:none}#individual,#exchange,#couple,#episode{display:block!important}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.58 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(135deg,#253936,#3f5b55);color:#fff;padding:42px 20px 32px}.wrap{max-width:1120px;margin:auto;padding:0 20px}header .wrap{padding:0}
+h1,h2,h3{font-family:Georgia,serif}h1{font-size:clamp(2.15rem,4vw,3.5rem);line-height:1.04;margin:0 0 12px}h2{font-size:1.7rem;line-height:1.2;margin:0 0 10px}h3{font-size:1.12rem;margin:0 0 7px}p{margin:.45rem 0 1rem}.lede{max-width:890px;color:#edf3f1;font-size:1.06rem}
+.kicker{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted)}header .kicker{color:#d8e3e0}.small{font-size:.88rem;color:var(--muted)}
+nav,.actions,.toolbar{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}button,.btn{appearance:none;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:9px;padding:10px 14px;font-weight:750;cursor:pointer;font-size:.94rem}button.secondary{background:transparent;color:var(--accent)}button.ghost{background:transparent;border-color:#ffffff88;color:#fff}button.light{background:#fff;color:var(--accent);border-color:var(--line)}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #8db0a8;outline-offset:2px}
+main{padding:26px 0 70px}.card,.notice{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.card{padding:20px}.notice{padding:18px 20px;margin-bottom:18px}.notice strong{color:var(--accent)}.warning{background:var(--warnbg);border-color:var(--warnline)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:15px}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.span-3{grid-column:span 3}@media(max-width:850px){.span-8,.span-6,.span-4,.span-3{grid-column:span 12}}
+.section{margin:20px 0}.section-head{display:flex;gap:18px;justify-content:space-between;align-items:flex-start;margin-bottom:10px}.section-note{max-width:820px;color:var(--muted);font-size:.9rem}.tag{display:inline-block;border-radius:999px;padding:3px 8px;background:var(--soft);font-size:.73rem;font-weight:800;margin-bottom:6px}
+.progress-wrap{position:sticky;top:0;z-index:20;background:rgba(244,241,234,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:8px 0}.progress-inner{max-width:1120px;margin:auto;padding:0 20px;display:flex;gap:12px;align-items:center}.progress{height:9px;flex:1;background:#ded8cf;border-radius:99px;overflow:hidden}.progress>div{height:100%;background:var(--accent);width:0;transition:width .2s}
+.question{padding:16px 0;border-top:1px solid var(--line)}.question:first-of-type{border-top:0}.qtext{font-weight:650;margin-bottom:10px}.qnum{color:var(--muted);display:inline-block;min-width:2.5em;font-weight:800}.likert{display:grid;grid-template-columns:1.2fr repeat(5,42px) 1.2fr;gap:7px;align-items:center}.likert .pole{font-size:.8rem;color:var(--muted)}.likert .pole.right{text-align:right}.likert label{display:grid;place-items:center}.likert input{position:absolute;opacity:0;pointer-events:none}.choice{display:grid;place-items:center;width:38px;height:38px;border:1px solid #bfb8ae;border-radius:50%;background:#fff;cursor:pointer;font-size:.83rem;font-weight:800}.likert input:checked+.choice{background:var(--accent);border-color:var(--accent);color:#fff}.anchor-line{display:flex;justify-content:space-between;color:var(--muted);font-size:.77rem;margin-top:7px;gap:10px}
+@media(max-width:760px){.likert{grid-template-columns:1fr repeat(5,34px) 1fr;gap:4px}.choice{width:32px;height:32px;font-size:.75rem}.anchor-line{font-size:.7rem}.progress-inner strong{font-size:.82rem}}
+.callout{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--soft2);margin:10px 0}.callout.private{border-color:#c6b28f;background:#fbf6ec}.callout.neutral{background:#f4f7f5;border-color:#cad8d2}.callout strong{color:var(--accent)}
+.score-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}@media(max-width:760px){.score-grid{grid-template-columns:1fr}}.score-card{border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px}.score-row{display:grid;grid-template-columns:minmax(180px,1fr) 62px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}.score-row:first-child{border-top:0}.score-value{font:700 1rem Georgia,serif;color:var(--accent);text-align:right}.bar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin-top:5px}.bar>i{display:block;height:100%;background:var(--accent);width:0}.metric-note{font-size:.8rem;color:var(--muted);margin-top:3px}
+.compare{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}.compare-row{display:grid;grid-template-columns:minmax(165px,1.3fr) 72px 72px 72px;gap:8px;padding:10px 12px;border-top:1px solid var(--line);align-items:center}.compare-row:first-child{border-top:0}.compare-head{font-size:.78rem;color:var(--muted);font-weight:800;background:var(--soft2)}@media(max-width:680px){.compare-row{grid-template-columns:1.25fr .55fr .55fr .55fr;font-size:.84rem}}
+.badges{display:flex;flex-wrap:wrap;gap:7px}.badge{border:1px solid var(--line);border-radius:999px;padding:5px 9px;background:#fff;font-size:.8rem}.insight{border-left:4px solid var(--accent);background:#f4f7f5;border-radius:8px;padding:11px 13px;margin:9px 0}.insight.soft{border-left-color:var(--accent2);background:#faf6f0}
+textarea,input[type=text]{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff;color:var(--ink);font:inherit}.text-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:760px){.text-grid{grid-template-columns:1fr}}.prompt{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff}.prompt label{display:block;font-weight:700;margin-bottom:6px}.prompt textarea{min-height:94px}
+.token-box{width:100%;min-height:76px;font:600 .89rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all;background:#f8f6f1}.hidden{display:none!important}details{border-top:1px solid var(--line);padding:12px 0}details:first-of-type{border-top:0}summary{font-weight:750;cursor:pointer}.ref{font-size:.85rem;color:var(--muted)}.footer-note{margin-top:28px;color:var(--muted);font-size:.85rem}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.profile-tag{font-size:.77rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
+.module-toggle{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid var(--line);background:#fff;border-radius:12px;padding:13px;margin:9px 0}.module-toggle p{margin:.2rem 0 0}.context-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:700px){.context-list{grid-template-columns:1fr}}.context-list label{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff}.context-list input{margin-right:8px}
+.safety-checklist{padding:0;overflow:hidden}.safety-checklist>summary{position:relative;display:flex;flex-direction:column;gap:2px;padding:20px 58px 20px 20px;list-style:none;border:0}.safety-checklist>summary::-webkit-details-marker{display:none}.safety-checklist>summary::after{content:'+';position:absolute;right:22px;top:24px;font:700 1.45rem/1 Georgia,serif;color:var(--accent)}.safety-checklist[open]>summary::after{content:'−'}.safety-title{font:700 1.7rem/1.2 Georgia,serif;color:var(--ink)}.safety-content{padding:0 20px 20px}.safety-checklist .plain-list li{margin:.45rem 0}
+#quickHideScreen{position:fixed;inset:0;background:#fff;z-index:9999;padding:28px;overflow:auto}#quickHideScreen h1{font-family:system-ui,sans-serif;font-size:1.7rem}.plain-list{margin:.4rem 0 1rem;padding-left:20px}
+@media print{header,.progress-wrap,.no-print,#safety,#coreAssessment,#optionalModules{display:none!important}body{background:#fff}.card,.notice{box-shadow:none}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="section-kicker" style="color:#d5e1de">Structured couple formulation and self-exploration tool</div>
-    <h1>Couple Dynamic Map</h1>
-    <p class="lede">A private, multi-framework relationship assessment anchored in Jungian psychology and expanded with attachment, emotionally focused, behavioral, integrative behavioral, mentalization, conflict-cycle, repair, and systemic perspectives.</p>
-    <div class="toolbar no-print">
-      <button class="ghost" onclick="document.getElementById('safety').scrollIntoView()">Private safety check</button>
-      <button class="ghost" onclick="document.getElementById('assessment').scrollIntoView()">Start assessment</button>
-      <button class="ghost" onclick="document.getElementById('exchange').scrollIntoView()">Combine two capsules</button>
-    </div>
-  </div>
-</header>
-
-<div class="progress-wrap no-print">
-  <div class="progress-inner"><strong id="progressText">0 / 108 answered</strong><div class="progress"><div id="progressBar"></div></div><span class="small" id="progressPct">0%</span></div>
+<div id="quickHideScreen" class="hidden" aria-live="polite">
+  <h1>Notes</h1>
+  <p>This page has been hidden.</p>
+  <p class="small">Closing or hiding a page does not remove browser history. Use your browser controls if you need to manage history or tabs.</p>
 </div>
-
+<header>
+<div class="wrap">
+  <div class="kicker">Structured relationship reflection and mapping tool</div>
+  <h1>Couple Dynamic Map</h1>
+  <p class="lede">A private tool for two partners who want to understand how they communicate, react under stress, repair conflict, stay connected, and make sense of deeper patterns. Jungian psychology provides the depth lens. Other sections use established ideas from attachment and modern couple therapy.</p>
+  <nav class="no-print">
+    <button class="ghost" onclick="document.getElementById('start').scrollIntoView()">Start</button>
+    <button class="ghost" onclick="document.getElementById('exchange').scrollIntoView()">Combine two maps</button>
+    <button class="ghost" onclick="clearAll()">Clear responses</button>
+    <button class="ghost" onclick="quickHide()">Quick hide</button>
+  </nav>
+</div>
+</header>
+<div class="progress-wrap no-print"><div class="progress-inner"><strong id="progressText">0 / 57 core questions answered</strong><div class="progress"><div id="progressBar"></div></div><span class="small" id="progressPct">0%</span></div></div>
 <main><div class="wrap">
+
+<section class="notice" id="start">
+  <strong>What this is.</strong> This is an original relationship reflection and mapping tool. It is not a clinically validated psychological test. It does not diagnose a person, a relationship, abuse, mental illness, attachment style, personality type, or compatibility. The scores describe how often you say certain things happen. There is no score that means something is definitely a problem. The scores are for comparison and reflection, not diagnosis.
+</section>
 <section class="notice">
-  <strong>Not a diagnosis.</strong> This is an original, structured self-exploration and couple-formulation tool. It is not a clinically validated psychological test, does not diagnose a person or relationship, and should not be used to decide whether someone is "compatible," mentally ill, abusive, or at fault. It is designed to generate hypotheses that should be checked against real interactions. No names are requested and this file makes no network requests.
+  <strong>How to answer.</strong> Unless a question says otherwise, answer for your typical experience during the <strong>last 8 weeks</strong>. Do not answer only from your best day, your worst argument, or how you wish the relationship worked. Each partner should answer alone before comparing results.
+  <p class="small" style="margin-bottom:0"><a href="#safety" onclick="document.getElementById('safety').open=true"><strong>If you have concerns about fear, control, threats, violence, sexual pressure, or privacy, read the Safety checklist before starting.</strong></a></p>
 </section>
-
-<section class="card section-card">
-  <div class="section-kicker">Evidence-informed architecture</div><h2>What the tool combines</h2>
+<section class="card section">
+  <div class="kicker">Design principles</div><h2>How the tool is built</h2>
   <div class="grid">
-    <div class="span-4 framework"><span class="tag">Core anchor</span><h3>Jungian / analytical</h3><p class="small">Typology, ego-to-ego relationship, persona and shadow, projection, complexes, differentiation, and individuation. Used as an interpretive map, not a psychometric diagnosis.</p></div>
-    <div class="span-4 framework"><span class="tag">Attachment / EFCT</span><h3>Bond and negative cycle</h3><p class="small">Accessibility, responsiveness, engagement, vulnerable needs, anxiety about disconnection, and distancing strategies.</p></div>
-    <div class="span-4 framework"><span class="tag">IBCT / behavioral</span><h3>Acceptance and change</h3><p class="small">Specific behavior, polarization, acceptance, concrete change requests, reinforcement, and recurring differences that may need management rather than elimination.</p></div>
-    <div class="span-4 framework"><span class="tag">Interaction research</span><h3>Pursue and withdraw</h3><p class="small">Demand-withdraw, defensive escalation, problem-solving pressure, globalizing, and the way one partner's regulation strategy can intensify the other's.</p></div>
-    <div class="span-4 framework"><span class="tag">Mentalization</span><h3>Two minds, not one</h3><p class="small">Curiosity about mental states, fact versus inference, perspective-taking, and recovering uncertainty when conflict makes motives feel obvious.</p></div>
-    <div class="span-4 framework"><span class="tag">Common clinical practice</span><h3>Repair, positive bond, context</h3><p class="small">Repair capacity, warmth and appreciation, intimacy, shared meaning, commitment, external stress, teamwork, and safety screening.</p></div>
+    <div class="span-4"><span class="tag">Research-based constructs</span><h3>Observable relationship processes</h3><p class="small">The core asks about communication, connection under stress, pursue-withdraw patterns, regulation, repair, acceptance, everyday connection, and teamwork. The questions are original and are not copied from validated scales.</p></div>
+    <div class="span-4"><span class="tag">Relationship map</span><h3>Patterns, not verdicts</h3><p class="small">The couple map looks for interaction loops and differences in how each partner experiences the same relationship. It does not produce a compatibility score or decide who is right.</p></div>
+    <div class="span-4"><span class="tag">Jungian depth lens</span><h3>Questions about the unconscious</h3><p class="small">Persona, shadow, projection, emotional complexes, the four-part relationship map, and individuation are used as guided questions. The tool does not pretend that an unconscious process can be measured directly by a self-report score.</p></div>
   </div>
 </section>
 
-<section id="safety" class="card section-card">
-  <div class="section-kicker">Private and not exported</div><h2>Safety gate before couple mapping</h2>
-  <p>This section is deliberately separate from the relationship score. These answers are never placed in the response capsule. If any item is true, a self-guided couple exercise may be the wrong format because open disclosure or joint interpretation can increase risk in relationships involving fear, coercive control, or violence.</p>
-  <div id="safetyItems"></div>
-  <div id="safetyStatus" class="callout warn" style="margin-top:12px">Complete all safety items privately before generating a shareable response capsule.</div>
+<section id="coreAssessment"></section>
+
+<section class="card section no-print" id="scoreSection">
+  <div class="kicker">Core result</div><h2>Build my individual map</h2>
+  <p>Complete all 57 core questions. The result uses descriptive 1-to-5 averages. A higher number simply means you reported that pattern more often. There is no score that means something is definitely a problem. The scores are for comparison and reflection, not diagnosis.</p>
+  <div class="actions"><button id="scoreBtn">Build my map</button><button class="secondary" onclick="clearCore()">Clear core answers</button></div>
 </section>
 
-<section id="assessment">
-  <section class="card section-card">
-    <h2>Instructions</h2>
-    <p>Complete the assessment independently. Answer for your typical relationship pattern over roughly the last 3 to 6 months, especially during meaningful disagreements, rather than your best day or worst fight. For standard items, 1 means strongly disagree and 5 means strongly agree. Typology items are bipolar preferences rather than good-bad scales.</p>
-    <p class="small">Do not consult your partner while answering. The most useful differences are often differences in perspective.</p>
-  </section>
-  <div id="questionSections"></div>
-  <section class="card section-card no-print"><h2>Finish individual assessment</h2><p id="finishMsg">Answer all 108 items to calculate your map.</p><button id="scoreBtn" disabled>Calculate my dynamic map</button></section>
+<section class="card section hidden" id="individual">
+  <div class="kicker">Your private result</div><h2>Your individual map</h2>
+  <div id="individualSummary"></div>
 </section>
 
-<section id="individual" class="hidden">
-  <section class="card section-card"><div class="section-head"><div><div class="section-kicker">Individual formulation</div><h2>Your dynamic map</h2></div><button class="secondary no-print" onclick="window.print()">Print</button></div><div id="individualSummary"></div></section>
+<section class="card section" id="optionalModules">
+  <div class="kicker">Optional deep dives</div><h2>Add only what is useful</h2>
+  <p>The core assessment is enough to create a couple map. These modules add context without forcing every relationship into the same framework.</p>
+  <div class="module-toggle"><div><strong>Processing style</strong><p class="small">Jung-inspired preferences such as private vs talk-it-through processing, logic/consistency vs value/impact, and detail vs pattern.</p></div><button class="secondary" onclick="toggleModule('typologyModule')">Open</button></div>
+  <div class="module-toggle"><div><strong>Intimacy and sexuality</strong><p class="small">Communication, consent, desire differences, affection, and whether sex becomes a test of love or worth.</p></div><button class="secondary" onclick="toggleModule('intimacyModule')">Open</button></div>
+  <div class="module-toggle"><div><strong>External stress</strong><p class="small">Work, money, health, sleep, caring duties, family pressure, housing, and major life change. Stress is treated as context, not as a relationship defect.</p></div><button class="secondary" onclick="toggleModule('stressModule')">Open</button></div>
+  <div class="module-toggle"><div><strong>Culture and life context</strong><p class="small">Non-scored context that may change what conflict, closeness, duty, privacy, family, and independence mean.</p></div><button class="secondary" onclick="toggleModule('contextModule')">Open</button></div>
+
+  <div id="typologyModule" class="hidden"></div>
+  <div id="intimacyModule" class="hidden"></div>
+  <div id="stressModule" class="hidden"></div>
+  <div id="contextModule" class="hidden"></div>
 </section>
 
-<section id="exchange" class="card section-card">
-  <div class="section-kicker">Anonymous couple exchange</div><h2>Generate and combine response capsules</h2>
-  <div class="grid">
-    <div class="span-6"><h3>Your capsule</h3><p class="small">The capsule contains only rounded aggregate domain scores, never individual question responses and never safety answers. It contains no name, email, date, free text, or device identifier. It is not encryption: someone who has the source code can decode the aggregate scores.</p><div id="myToken" class="token-box">Complete the assessment and private safety gate to generate a capsule.</div><div class="actions no-print"><button id="copyTokenBtn" disabled>Copy my capsule</button></div></div>
-    <div class="span-6"><h3>Partner capsule</h3><p class="small">Paste the other person's CDM1 capsule exactly as shared. The two capsules are sorted deterministically into Profile A and Profile B, so both devices create the same couple map.</p><textarea id="partnerToken" rows="4" placeholder="Paste CDM1-... capsule here"></textarea><div class="actions no-print"><button id="combineBtn" disabled>Generate couple map</button><button id="clearPartnerBtn" class="secondary">Clear</button></div><div id="tokenStatus" class="small" style="margin-top:8px"></div></div>
-  </div>
+<section class="card section" id="jungianDepth">
+  <div class="kicker">Jungian depth map</div><h2>Explore what the conflict may carry</h2>
+  <p>These prompts are not scored and are not put into the Share Code. They are meant to help you separate the real partner from the meanings, fears, roles, and projections that can gather around them.</p>
+  <div class="text-grid" id="jungPrompts"></div>
+  <div class="actions no-print"><button class="secondary" onclick="clearTextGroup('jungPrompts')">Clear these notes</button></div>
 </section>
 
-<section id="couple" class="hidden"><section class="card section-card"><div class="section-head"><div><div class="section-kicker">Dyadic formulation</div><h2>Couple Dynamic Map</h2></div><button class="secondary no-print" onclick="window.print()">Print</button></div><div id="coupleSummary"></div></section></section>
-
-<section id="episode" class="card section-card">
-  <div class="section-kicker">Use after a real disagreement</div><h2>Conflict Episode Mapper</h2>
-  <p>This worksheet slows a specific conflict down before interpretation. Nothing entered here is exported into the capsule.</p>
-  <div class="grid">
-    <div class="span-6"><label><strong>1. Observable trigger</strong><br><span class="small">What was said or done, without motive or interpretation?</span><textarea id="ep1" rows="3"></textarea></label></div>
-    <div class="span-6"><label><strong>2. Primary feeling / body reaction</strong><br><span class="small">What happened in you before the explanation?</span><textarea id="ep2" rows="3"></textarea></label></div>
-    <div class="span-6"><label><strong>3. Meaning I added</strong><br><span class="small">What did I decide this event meant about me, my partner, or the relationship?</span><textarea id="ep3" rows="3"></textarea></label></div>
-    <div class="span-6"><label><strong>4. Role I moved into</strong><br><span class="small">Pursue, withdraw, defend, fix, fatalize, reassure, attack, or another role?</span><textarea id="ep4" rows="3"></textarea></label></div>
-    <div class="span-6"><label><strong>5. Vulnerable fear or need underneath</strong><textarea id="ep5" rows="3"></textarea></label></div>
-    <div class="span-6"><label><strong>6. What my partner then did</strong><textarea id="ep6" rows="3"></textarea></label></div>
-    <div class="span-6"><label><strong>7. What belongs to me</strong><br><span class="small">Projection, shadow, assumption, regulation problem, old expectation?</span><textarea id="ep7" rows="3"></textarea></label></div>
-    <div class="span-6"><label><strong>8. What remains a real relationship issue</strong><br><span class="small">Specific behavior, boundary, need, or difference that still requires attention?</span><textarea id="ep8" rows="3"></textarea></label></div>
-  </div>
-  <div class="actions no-print"><button id="buildEpisode">Build episode summary</button><button id="clearEpisode" class="secondary">Clear</button></div>
-  <div id="episodeSummary" class="hidden callout" style="margin-top:12px"></div>
+<section class="card section" id="episode">
+  <div class="kicker">Conflict episode mapper</div><h2>Slow down one real disagreement</h2>
+  <p>Use one specific event. Stay close to what actually happened before moving into interpretation.</p>
+  <div class="text-grid" id="episodePrompts"></div>
+  <div class="actions no-print"><button id="buildEpisode">Build episode summary</button><button class="secondary" onclick="clearEpisode()">Clear episode</button></div>
+  <div id="episodeSummary" class="callout hidden"></div>
 </section>
 
-<section class="card section-card">
-  <h2>Interpretive limits and research notes</h2>
-  <details open><summary>Why this is formulation, not diagnosis</summary><p>Relationship distress is not a single disease entity. Different therapy schools organize the same interaction differently. This tool therefore uses converging lenses and looks for interaction hypotheses, protective factors, and leverage points. No score proves incompatibility or predicts whether a relationship will last.</p></details>
-  <details><summary>Jungian anchor</summary><p>The analytical frame draws on Jung's <em>Psychological Types</em>, <em>Aion</em>, <em>The Psychology of the Transference</em>, and <em>Marriage as a Psychological Relationship</em>. The key practical question is where an ego-to-ego conversation shifts into projection, shadow defense, complex activation, or an archetypally amplified enactment.</p></details>
-  <details><summary>Evidence-based couple therapy</summary><p>Modern outcome research supports couple therapy overall, including behavioral and emotionally focused approaches. Integrative Behavioral Couple Therapy adds acceptance to behavior change. Demand-withdraw is a well-studied destructive cycle. Mentalization-based couple work focuses on recovering curiosity about two separate minds. Evidence remains heterogeneous, and no single framework should be treated as a universal diagnostic truth.</p></details>
-  <details><summary>Safety</summary><p>Fear, coercive control, violence, sexual coercion, stalking, or retaliation require a safety-first response. Joint exercises can be unsafe when one person cannot speak freely. This tool does not assess lethality and is not a substitute for confidential professional risk assessment.</p></details>
-  <details><summary>Selected references</summary><div class="ref">
-    <p>Jung, C. G. <em>Psychological Types</em>, CW 6; <em>Aion</em>, CW 9ii; <em>The Practice of Psychotherapy</em>, CW 16; <em>The Development of Personality</em>, CW 17.</p>
-    <p>Christensen, A., & Doss, B. D. (2017). Integrative Behavioral Couple Therapy. <em>Current Opinion in Psychology</em>, 13, 111-114.</p>
-    <p>Roddy, M. K., Walsh, L. M., Rothman, K., Hatch, S. G., & Doss, B. D. (2020). Meta-analysis of couple therapy. <em>Journal of Consulting and Clinical Psychology</em>, 88(7), 583-596.</p>
-    <p>Rathgeber, M., Buerkner, P. C., Schiller, E. M., & Holling, H. (2019). The efficacy of emotionally focused couples therapy and behavioral couples therapy: A meta-analysis. <em>Journal of Marital and Family Therapy</em>, 45(3), 447-463.</p>
-    <p>Papp, L. M., Kouros, C. D., & Cummings, E. M. (2009). Demand-withdraw patterns in marital conflict in the home. <em>Personal Relationships</em>, 16(2), 285-300.</p>
-    <p>Bleiberg, E., Safier, E., & Fonagy, P. (2022). Mentalization-based couple therapy. In <em>Clinical Handbook of Couple Therapy</em>.</p>
-    <p>Jackson, J. B., Codeca, L., Miller, R. B., Simpson, J. E., O'Leary, A. M., & Renner, S. M. (2026). Empirically Supported Couple Therapy Models for Couple Relationship Distress: A Replication and Update. <em>Journal of Marital and Family Therapy</em>, 52(4), e70162.</p>
-    <p>Australian Institute of Health and Welfare (2026). <em>Coercive control</em>. Safety screening material in this tool is an original brief screen and is not the AIHW risk assessment instrument.</p>
+<section class="card section" id="exchange">
+  <div class="kicker">Private exchange</div><h2>Create your Share Code</h2>
+  <p>The Share Code contains only <strong>summary scores</strong> from the core and any optional scored modules you completed. It does not include your name, raw item answers, context checklist, Jungian notes, or conflict notes.</p>
+  <div class="callout"><strong>Not encryption.</strong> The Share Code is compact and does not contain your name, but it is not secret or tamper-proof. A technically skilled person could decode the summary values from the page code. Share it only with someone you choose.</div>
+  <label for="profileKey"><strong>Profile key</strong></label>
+  <p class="small">This random key gives your Share Code a stable technical identity if you repeat the assessment later. Save the same key if you want to compare over time. It is not your name or account.</p>
+  <div class="actions"><input id="profileKey" type="text" maxlength="8" style="max-width:190px" aria-label="Profile key"><button class="secondary" onclick="newProfileKey()">New key</button></div>
+  <div class="actions no-print"><button id="makeTokenBtn">Create my Share Code</button><button class="secondary" id="copyTokenBtn">Copy Share Code</button></div>
+  <textarea id="myToken" class="token-box" readonly placeholder="Your CDM2 Share Code will appear here."></textarea>
+
+  <h3 style="margin-top:22px">Combine with your partner</h3>
+  <p>Paste your partner's Share Code below. On your device, your results will appear as <strong>Myself</strong> and the imported results as <strong>My Partner</strong>. Your partner will see the same relationship data from their own point of view.</p>
+  <textarea id="partnerToken" class="token-box" placeholder="Paste partner Share Code here"></textarea>
+  <div id="tokenStatus" class="small"></div>
+  <div class="actions no-print"><button id="combineBtn">Build couple map</button><button class="secondary" onclick="clearPartner()">Clear partner Share Code</button></div>
+</section>
+
+<section class="card section hidden" id="couple">
+  <div class="kicker">Shared relationship map</div><h2>Couple Dynamic Map</h2>
+  <div class="notice" style="box-shadow:none"><strong>Important:</strong> A shared interaction pattern does not mean both partners are equally responsible for every event. Harm, broken agreements, threats, coercion, aggression, or other specific behavior still belongs to the person who did it. The map is for understanding interaction, not spreading blame evenly.</div>
+  <div id="coupleSummary"></div>
+</section>
+
+<section class="card section">
+  <div class="kicker">How to read this tool</div><h2>Limits and evidence</h2>
+  <details><summary>What the numbers mean</summary><p>Scores are simple averages of original questions, from 1 to 5. They describe what you reported, not a diagnosis. There is no score that means something is definitely a problem. The scores are for comparison and reflection, not diagnosis. A difference between partners means the same relationship is being experienced differently. It does not tell you which partner is correct.</p></details>
+  <details><summary>How pattern cards are surfaced</summary><p>The tool uses simple discussion rules to decide what to show first. There is no score that means something is definitely a problem, and the results are for comparison and reflection, not diagnosis. For example, a pattern may be surfaced when a person answers around “often” across the matching questions, or when a relationship resource is reported around “rarely to sometimes.” These rules only decide which conversation prompt to show first.</p></details>
+  <details><summary>Why Jungian ideas are mostly qualitative here</summary><p>Shadow, projection, complexes, anima/animus, and individuation concern processes that may be partly unconscious. A person cannot directly measure their own unconscious by checking boxes. The Jungian sections therefore use questions to generate hypotheses that can be tested against lived experience.</p></details>
+  <details><summary>What this tool does not copy</summary><p>This tool does not reproduce or claim the validation of instruments such as the Couple Satisfaction Index, Experiences in Close Relationships measures, Communication Patterns Questionnaire, or other proprietary or validated scales. Its questions and scoring are original.</p></details>
+  <details><summary>Privacy</summary><p>The assessment code does not send questionnaire answers to a server, use analytics, set cookies, or use local storage. Standard browser and web-hosting metadata may still exist when the page is hosted online. Refreshing or closing a browser is not a reliable privacy method. Use the Clear all responses button if you want to clear the current page.</p></details>
+  <details><summary>Selected foundations</summary><div class="ref">
+    <p><strong>Jungian:</strong> C. G. Jung, <em>Psychological Types</em>; <em>Aion</em>; <em>The Psychology of the Transference</em>; <em>Marriage as a Psychological Relationship</em>.</p>
+    <p><strong>Couple therapy:</strong> Integrative Behavioral Couple Therapy; Emotionally Focused Couple Therapy; behavioral couple therapy; demand-withdraw research; mentalization-based couple work; relationship repair and responsiveness research.</p>
+    <p><strong>Measurement:</strong> Research on relationship satisfaction, adult attachment, communication patterns, and routine outcome monitoring informed the architecture, but the present questions are original and not a substitute for validated measures.</p>
   </div></details>
 </section>
-<p class="footer-note">Version CDM1. Original synthesis for private self-exploration. No external libraries, analytics, cookies, local storage, or server-side storage are used by this file. Refreshing the page clears responses.</p>
+<p class="footer-note">Version CDM2. Relationship reflection and mapping tool. Built to support understanding, not diagnosis.</p>
+
+<details class="card section safety-checklist" id="safety">
+  <summary>
+    <span class="kicker">Before using this tool together</span>
+    <span class="safety-title">Safety checklist</span>
+    <span class="small">Read this first if you have concerns about fear, control, violence, sexual pressure, or privacy.</span>
+  </summary>
+  <div class="safety-content">
+    <p><strong>Do not complete this questionnaire as a shared couple exercise, and consider not completing it at all on this device, if you cannot answer freely and safely.</strong> This tool assumes that both people can disagree, say no, set boundaries, and speak honestly without fear of punishment.</p>
+    <p>It is better not to use this questionnaire with your partner if any of the following apply:</p>
+    <ul class="plain-list">
+      <li>You are afraid of how your partner may react to your answers, disagreement, boundaries, or a decision not to continue.</li>
+      <li>Your partner controls or closely monitors your movements, money, work or study, social contacts, phone, messages, accounts, or location.</li>
+      <li>There have been threats, intimidation, stalking, property damage, harm to pets, blocking exits, restraint, choking or strangulation, physical violence, or threats involving weapons.</li>
+      <li>There has been sexual pressure, sexual activity without free consent, or punishment after you say no.</li>
+      <li>You fear retaliation if you seek help, tell someone what is happening, or try to leave.</li>
+      <li>You are being pressured or required to complete this tool, show your answers, or share your Share Code.</li>
+      <li>You suspect that the device or account you are using is being monitored and seeing this page could put you at risk.</li>
+      <li>You cannot speak honestly because the other person may use your answers against you later.</li>
+    </ul>
+    <div class="callout private"><strong>In these situations, the problem is not ordinary miscommunication.</strong> A joint relationship exercise can increase risk or give a controlling partner more information to use. Consider private support from a qualified professional or a specialist domestic, family, or sexual violence service instead. If you are in immediate danger, contact local emergency services.</div>
+    <p class="small">If you use parts of this tool only for private reflection, consider using a safer device that the other person cannot access. Quick hide does not erase browser history or other digital traces.</p>
+  </div>
+</details>
 </div></main>
 
 <script>
-const sections=[
- {key:'typology',title:'1. Typology and communication tempo',note:'Jungian descriptive preferences, not pathology. Choose the pole closest to your natural tendency.',mode:'bipolar',items:[
-  ['When I am working out what I think about a difficult relationship issue...','I need private reflection before I can speak clearly','I discover what I think by talking it through'],
-  ['After an emotionally intense interaction...','Solitude usually helps me reset first','Contact or conversation usually helps me reset first'],
-  ['In important discussions...','I prefer to speak after I have formed my position','I tend to form my position as I speak'],
-  ['When deciding whether a complaint is valid...','I first test logic, consistency, and evidence','I first test values, impact, and relational meaning'],
-  ['During conflict I first notice...','Accuracy, contradictions, and whether the reasoning follows','Tone, meaning, and how the exchange affects the relationship'],
-  ['A resolution feels solid when...','The explanation is coherent and the issue makes sense','Mutual understanding and relational alignment are restored'],
-  ['When something goes wrong I naturally focus on...','The exact facts, sequence, and observable details','The broader pattern, implications, and possibilities'],
-  ['When discussing one conflict...','I prefer to stay with the specific incident','I naturally connect it to recurring patterns or future implications'],
-  ['I trust most readily...','What can be established from experience and what actually happened','What the pattern suggests may be happening underneath or next'],
-  ['If an important concern is raised...','I usually prefer to talk while the issue is live','I usually prefer time to reflect before discussing it fully'],
-  ['When asked a difficult relational question...','I can usually answer usefully in the moment','I often need time before I know what I really think'],
-  ['Under stress my communication tends to become...','Faster, more active, or more verbal','Slower, quieter, or more delayed']
+const CORE_SECTIONS=[
+ {key:'snapshot',title:'1. Relationship snapshot',note:'How you have experienced the relationship during the last 8 weeks. These items describe your view of the relationship, not your partner\'s intent.',kind:'relationship',items:[
+  ['I have felt emotionally close to my partner.','closeness'],
+  ['There have been regular moments when I felt warmth or affection between us.','closeness'],
+  ['When I raise something important, I usually feel heard before the conversation moves to solutions or disagreement.','heard'],
+  ['I can bring up a difficult topic without expecting the whole conversation to go badly.','heard'],
+  ['After a disagreement, we usually find our way back to ordinary connection.','dyadicRepair'],
+  ['When one of us makes a genuine repair attempt, the other usually notices it.','dyadicRepair'],
+  ['I can picture a future together without needing every current difference to be solved first.','future'],
+  ['Even during a difficult period, the relationship still feels worth working on to me.','future']
  ]},
- {key:'ego',title:'2. Ego-to-ego communication',note:'Capacity to stay specific, understand before rebutting, and keep behavior separate from identity.',mode:'agree',items:[
-  'I can summarize my partner\'s concern to their satisfaction before giving my own answer.',
-  'I can acknowledge the impact of my behavior without treating that as automatic agreement about intention or blame.',
-  'I can disagree with my partner without turning the disagreement into a threat to the relationship.',
-  'I ask clarifying questions before deciding what my partner means.',
-  'I can stay with one specific issue instead of introducing every related grievance.',
-  'I can explain myself without using the explanation to cancel my partner\'s experience.',
-  'I can accept a pause in conflict and reliably return to the conversation later.',
-  'I can make a concrete request instead of expecting my partner to infer what I need.'
+ {key:'conversation',title:'2. Conversation and perspective-taking',note:'What you tend to do in difficult conversations.',kind:'individual',items:[
+  ['Before I answer a complaint, I can tell my partner what I think they are trying to say.','listen'],
+  ['I can acknowledge the effect of my behavior before I explain what I meant.','listen'],
+  ['I ask a question when I am not sure what my partner means.','clarify'],
+  ['I check my interpretation instead of treating my first guess about my partner\'s motive as fact.','clarify'],
+  ['I can stay with the issue we are discussing instead of bringing in every related problem.','specificity'],
+  ['I can separate one behavior from a judgement about my partner\'s whole character.','specificity'],
+  ['Even when I feel certain, I can accept that my partner may see the same event differently.','perspective'],
+  ['When I am upset, I can still admit that I may not fully know what is happening in my partner\'s mind.','perspective']
  ]},
- {key:'mental',title:'3. Mentalization and epistemic humility',note:'The ability to remember that two separate minds are present and that motives remain partly uncertain.',mode:'agree',items:[
-  'When I feel certain about my partner\'s motive, I can still consider that I may be wrong.',
-  'I can distinguish what I observed from what I inferred.',
-  'I can imagine how the same event could make sense from my partner\'s point of view.',
-  'When emotionally activated, I can recover curiosity about what is happening in my partner\'s mind.',
-  'I can say "I do not know what you meant" rather than treating my first interpretation as fact.',
-  'I can hold my own perspective firmly without assuming it is the only psychologically valid one.'
+ {key:'connection',title:'3. Connection when the bond feels strained',note:'People often protect themselves differently when closeness feels uncertain. These are patterns, not attachment diagnoses.',kind:'individual',items:[
+  ['When I need reassurance or closeness, I can ask for it directly.','directNeed'],
+  ['I can tell my partner when I feel hurt, afraid, lonely, or unsure without turning it into an accusation.','directNeed'],
+  ['When I sense distance between us, I quickly worry that the relationship itself may be in danger.','anxiety'],
+  ['When I am unsure where I stand, I look for repeated signs that we are still okay.','anxiety'],
+  ['When conflict becomes emotional, I often want more distance than my partner wants.','distance'],
+  ['When I feel pressured to talk about feelings, I tend to shut down, delay, or move away from the conversation.','distance'],
+  ['I can name the softer feeling underneath my anger, criticism, or defensiveness.','vulnerability'],
+  ['When my partner is vulnerable, I can stay with what they feel before I solve, correct, or defend.','vulnerability']
  ]},
- {key:'shadow',title:'4. Persona and shadow pressure',note:'Higher scores indicate more pressure to preserve a preferred self-image and more difficulty owning disfavored traits.',mode:'agree',items:[
-  'I feel strong pressure to be seen by my partner as competent, good, reasonable, dependable, or desirable.',
-  'When my partner sees a trait in me that I dislike in myself, I feel disproportionate shame.',
-  'I find it hard to admit traits such as selfishness, envy, dependency, anger, control, or helplessness in myself.',
-  'I quickly move from "I did something poorly" to "this says something bad about who I am."',
-  'I work hard to explain behavior that conflicts with my preferred image of myself.',
-  'I am especially irritated by traits in my partner that I would hate to recognize in myself.',
-  'After conflict I feel driven to correct myself quickly so the relationship can feel safe again.',
-  'In conflict I sometimes protect being right, good, useful, or reasonable at the expense of curiosity.'
+ {key:'cycle',title:'4. What I do when conflict takes over',note:'These are common protective roles. A person can use more than one role, and roles can change from one conflict to another.',kind:'individual',items:[
+  ['If I feel my partner is not engaging, I push the issue harder.','pursue'],
+  ['If I do not feel understood, I repeat or strengthen my point.','pursue'],
+  ['When conflict gets intense, I go quiet, delay, disengage, or seek distance.','withdraw'],
+  ['I sometimes hope a hard issue will fade if we stop talking about it.','withdraw'],
+  ['When criticized, I explain or justify myself before I fully take in the concern.','defend'],
+  ['When criticized, I often point out what my partner also did wrong.','defend'],
+  ['When my partner is distressed, I quickly move to advice, analysis, or solutions.','fix'],
+  ['I find it hard to stay with a problem when there is nothing useful I can do to solve it.','fix'],
+  ['A specific conflict can quickly become "this will never change" or "maybe this relationship cannot work."','globalize'],
+  ['A complaint about one behavior can become a question in my mind about whether we are fundamentally right for each other.','globalize']
  ]},
- {key:'projection',title:'5. Projection and complex activation',note:'The first four items map projection. The last four map complex hijacking and emotional narrowing.',mode:'agree',items:[
-  'I infer what my partner thinks of me without always checking.',
-  'A present complaint can quickly become a prediction about the future of the relationship.',
-  'During conflict my partner can seem like a judge, critic, controller, rejecter, or other larger figure rather than the ordinary person I know.',
-  'I sometimes react to what I fear my partner may eventually do, not only to what they are doing now.',
-  'Certain phrases, tones, or topics reliably trigger the same strong reaction in me.',
-  'Once activated, I find it difficult to return to the specific issue being discussed.',
-  'The intensity of my reaction sometimes becomes larger than the immediate event seems to justify.',
-  'After conflict I sometimes wonder why I became so certain, absolute, or emotionally narrow.'
+ {key:'repair',title:'5. Regulation and repair',note:'What you tend to do when a conversation is becoming unproductive or after something has gone wrong.',kind:'individual',items:[
+  ['I usually notice when I am too worked up to have a useful conversation.','regulate'],
+  ['I can slow down before I say something I am likely to regret.','regulate'],
+  ['If I ask for a pause, I can say when I will return to the conversation.','return'],
+  ['If a difficult conversation is paused, I usually come back to it rather than leaving it unresolved.','return'],
+  ['I can apologize for a specific behavior without adding a defense in the same sentence.','apology'],
+  ['I can take responsibility for my part without turning that into "I am a bad person."','apology'],
+  ['I can notice when my partner is trying to calm things down or reconnect.','receiveRepair'],
+  ['I can accept a repair attempt even if I am still upset.','receiveRepair']
  ]},
- {key:'attachment',title:'6. Attachment bond and disconnection',note:'Maps secure engagement as well as anxiety and distancing strategies when the bond feels uncertain.',mode:'agree',items:[
-  'I can ask directly for reassurance, closeness, or support without testing or accusing my partner.',
-  'When something important happens, I generally expect my partner to be emotionally available to me.',
-  'When I sense disconnection, I quickly fear that the relationship itself may be at risk.',
-  'When I feel uncertain about the bond, I seek repeated confirmation that we are still okay.',
-  'When my partner wants emotional closeness during conflict, I often feel an urge to create distance.',
-  'I am more comfortable relying on myself than depending on my partner emotionally.',
-  'I can name a softer fear, hurt, or need underneath anger, criticism, or defensiveness.',
-  'I can respond to my partner\'s vulnerability without immediately solving, correcting, or defending.'
+ {key:'difference',title:'6. Difference, acceptance, and boundaries',note:'A workable relationship needs both change and acceptance. Not every difference should be fixed, and not every behavior should be accepted.',kind:'individual',items:[
+  ['I can tell the difference between a behavior that needs to change and a personality difference that may need to be managed.','acceptance'],
+  ['I can accept that some recurring differences may never be fully solved.','acceptance'],
+  ['I can ask for change without demanding that my partner become a different kind of person.','acceptance'],
+  ['I can hear that my partner wants something different from me without treating the difference itself as rejection.','difference'],
+  ['I can let my partner hold a different preference or opinion without needing to win them over.','difference'],
+  ['I can state a boundary clearly without using silence, threats, or withdrawal of affection as punishment.','boundaries'],
+  ['I can decide what I am willing to live with instead of trying to control my partner into removing all discomfort.','boundaries']
  ]},
- {key:'cycle',title:'7. Conflict roles and negative cycle',note:'These are interaction positions, not personality types. High scores show roles you may enter when the relationship is under pressure.',mode:'agree',items:[
-  'I pursue a problem harder when I feel my partner is not engaging with it.',
-  'I repeat or intensify a concern when I do not feel understood.',
-  'I go quiet, delay, disengage, or seek distance when conflict becomes intense.',
-  'I sometimes hope a difficult issue will fade if we stop discussing it for long enough.',
-  'I explain, justify, correct, or establish what I meant before I fully acknowledge my partner\'s concern.',
-  'When criticized, I often respond with a counterpoint about what my partner also did wrong.',
-  'I move quickly toward advice, solutions, analysis, or action when my partner is distressed.',
-  'It is difficult for me to remain with a problem when there is no clear solution I can provide.',
-  'During conflict I can move toward "this may never work," "nothing changes," or another global conclusion.',
-  'A specific complaint can become a question about whether we are fundamentally right for each other.'
- ]},
- {key:'repair',title:'8. Regulation and repair capacity',note:'Higher scores indicate stronger capacity to lower arousal, make repairs, and return to difficult conversations.',mode:'agree',items:[
-  'I can notice when I am too activated to have a useful conversation.',
-  'If I ask for a pause, I can give a clear plan for when we will return to the issue.',
-  'I can restart a difficult conversation more gently after a poor beginning.',
-  'I can recognize and respond when my partner tries to repair or de-escalate.',
-  'I can apologize for a specific behavior without adding a defense in the same sentence.',
-  'I can accept an apology without requiring the emotional impact to disappear immediately.',
-  'After conflict we are usually able to recover warmth or ordinary contact.',
-  'We can identify something concrete to do differently next time without demanding perfection.'
- ]},
- {key:'acceptance',title:'9. Acceptance, change, and differentiation',note:'Integrates IBCT-style acceptance with the capacity to remain a separate person inside a committed bond.',mode:'agree',items:[
-  'I can distinguish a behavior that needs change from a trait or difference that may need acceptance or management.',
-  'I can request a specific change without demanding that my partner become a different kind of person.',
-  'I can accept that some recurring differences may never be fully solved.',
-  'I can hold a boundary without turning the boundary into punishment or withdrawal of love.',
-  'I can hear that my partner wants something different from me without treating difference as rejection.',
-  'I can let my partner have a preference I do not share without needing to defeat or convert it.',
-  'I can decide what I am willing to live with instead of trying to control my partner into removing all discomfort.',
-  'I can make room for both acceptance and change rather than insisting that only one is legitimate.'
- ]},
- {key:'positive',title:'10. Positive bond and everyday connection',note:'Maps the ordinary relationship base that conflict sits on: warmth, attention, appreciation, humor, affection, and responsiveness.',mode:'agree',items:[
-  'I regularly notice things I appreciate about my partner and say them out loud.',
-  'When my partner makes a small attempt to connect, I usually notice and respond.',
-  'We still have moments of humor, play, or enjoyment that are not about solving problems.',
-  'Affection and warmth are present outside explicitly sexual situations.',
-  'I remain interested in my partner\'s inner world as it changes over time.',
-  'We can spend ordinary time together without the relationship feeling like a constant project.',
-  'Positive experiences between us feel psychologically real, not merely like a pause between problems.',
-  'Even during a difficult period I can remember why I value this relationship.'
- ]},
- {key:'intimacy',title:'11. Intimacy and sexuality',note:'A non-moralizing map of closeness, consent, desire, affection, and the ability to discuss differences without using sex as proof of worth.',mode:'agree',items:[
-  'I can talk openly about affection, sex, desire, or lack of desire without excessive shame or accusation.',
-  'A sexual "no" or "not now" can be respected without punishment, pressure, or a global conclusion about love.',
-  'We can discuss differences in desire, frequency, or preference as a shared issue rather than a verdict on either person.',
-  'I can enjoy nonsexual affection without treating it as an obligation to progress toward sex.',
-  'I can distinguish wanting sexual connection from needing sex to prove that I am desired, adequate, or secure.',
-  'Our intimate life allows room for curiosity, consent, humor, and change over time.'
- ]},
- {key:'meaning',title:'12. Shared meaning and commitment',note:'Maps whether the relationship has a sufficiently explicit "why," not just conflict-management machinery.',mode:'agree',items:[
-  'We have a reasonably clear sense of what kind of relationship we are trying to build.',
-  'We can discuss values and long-term priorities even when our preferences differ.',
-  'I can identify what commitment means to me beyond simply not leaving.',
-  'Our major decisions generally take both people\'s legitimate interests into account.',
-  'We have shared rituals, plans, or practices that give the relationship continuity.',
-  'I experience the relationship as supporting, rather than replacing, each person\'s individual development.'
- ]},
- {key:'context',title:'13. External stress and teamwork',note:'The first three items map external load spilling into the relationship. The last three map teamwork under that load.',mode:'agree',items:[
-  'Work, money, family, health, parenting, housing, or other external pressures regularly spill into how we treat each other.',
-  'When life becomes demanding, relationship conversations are more likely to become tense or misread.',
-  'One or both of us often reaches conflict already depleted by pressures outside the relationship.',
-  'We can distinguish "we have a relationship problem" from "we are under external stress."',
-  'We can negotiate practical responsibilities without one person carrying an unspoken or chronically unfair burden.',
-  'When external pressure rises, we can act as a team even if we regulate stress differently.'
- ]},
- {key:'individuation',title:'14. Individuation capacity',note:'Jungian end-state: remaining connected while allowing separateness, imperfection, uncertainty, shadow, choice, and repair.',mode:'agree',items:[
-  'I can remain connected while my partner is disappointed, angry, or in disagreement with me.',
-  'I can allow my partner to remain psychologically separate without demanding certainty about what they think or will choose.',
-  'I can distinguish changing a behavior from changing my whole identity in order to secure love.',
-  'I can repair harm without demanding immediate absolution and without punishing myself.',
-  'I can ask what a conflict may be making conscious in me without using that question to excuse hurtful behavior.',
-  'I can accept that love does not remove the other person\'s freedom, difference, or capacity to say no.'
+ {key:'bond',title:'7. Everyday bond and partnership',note:'The ordinary base of the relationship outside major conflict.',kind:'relationship',items:[
+  ['We still have moments of humor, play, or enjoyment that are not about solving problems.','affection'],
+  ['Warmth and affection are present in ordinary life.','affection'],
+  ['I regularly notice things I value about my partner and say them out loud.','affection'],
+  ['I remain interested in my partner\'s inner world as it changes over time.','interest'],
+  ['When my partner makes a small attempt to connect, I usually notice it.','interest'],
+  ['We can work together on practical problems without making the relationship itself the problem.','teamwork'],
+  ['When life is demanding, we can act like a team more often than like opponents.','teamwork'],
+  ['We have a reasonably clear shared sense of what we are trying to build together.','meaning']
  ]}
 ];
-
-const safetyQuestions=[
- 'I am afraid of how my partner may react if I disagree, set a boundary, or speak honestly.',
- 'My partner controls or restricts my money, work, movements, friendships, family contact, healthcare, devices, or access to information.',
- 'There have been threats of violence, physical aggression, forced restraint, property destruction used to frighten, or threats involving weapons.',
- 'There has been sexual pressure, coercion, forced sexual activity, or retaliation for refusing sexual activity.',
- 'My partner monitors, tracks, stalks, repeatedly checks, or invades my privacy in ways that make me feel unsafe or controlled.',
- 'I fear that sharing relationship concerns, seeking help, or using a couple tool could lead to retaliation or make things worse.',
- 'One partner uses threats of self-harm, suicide, exposure, financial harm, or harm to others as a way to control the other person.',
- 'I do not feel free to answer this assessment honestly if my partner might see my responses.'
+const TYPOLOGY_ITEMS=[
+ ['When I need to work out what I really think...','I usually need private reflection first','I usually work it out by talking','IE'],
+ ['After an intense conversation...','Time alone usually helps me reset','Contact or conversation usually helps me reset','IE'],
+ ['When I judge a disagreement...','I first look for logic, consistency, and evidence','I first look at values, impact, and what matters to the relationship','TF'],
+ ['A resolution feels solid when...','The explanation is clear and consistent','The people understand what matters to each other','TF'],
+ ['When something goes wrong...','I first focus on the facts and exact sequence','I first focus on the pattern and what it may mean','SN'],
+ ['When discussing one conflict...','I prefer to stay with this event','I naturally connect it to a bigger pattern or future meaning','SN'],
+ ['If an important concern is raised...','I usually want to talk while the issue is live','I usually want time to reflect first','Tempo'],
+ ['When asked a difficult relationship question...','I can usually answer usefully in the moment','I often need time before I know what I think','Tempo']
 ];
+const INTIMACY_ITEMS=[
+ ['I can talk about affection, sex, desire, or lack of desire without shaming my partner or myself.','sexTalk'],
+ ['I can say what I want or do not want sexually in clear words.','sexTalk'],
+ ['A sexual "no" or "not now" is respected without pressure, punishment, sulking, or a global conclusion about love.','consent'],
+ ['We can change our minds during sexual contact without fear of a bad reaction.','consent'],
+ ['We can discuss differences in desire, frequency, or preference as a shared issue rather than a verdict on either person.','desireTalk'],
+ ['We can talk about sexual changes caused by stress, health, medication, hormones, pain, fatigue, ageing, or life stage without assuming the relationship is failing.','desireTalk'],
+ ['I sometimes need sexual desire from my partner to prove that I am loved, attractive, adequate, or secure.','sexSecurity'],
+ ['A drop in sexual interest can quickly feel to me like a statement about my worth or the future of the relationship.','sexSecurity']
+];
+const STRESS_ITEMS=[
+ ['Workload, work hours, or lack of time','work'],['Money or financial uncertainty','money'],['Health, pain, medication, or medical concerns','health'],['Poor sleep, fatigue, or low energy','sleep'],['Children, parenting, or other caring duties','care'],['Extended family expectations or conflict','family'],['Housing, migration, legal, or location pressures','housing'],['A major recent life change, loss, or transition','transition']
+];
+const JUNG_PROMPTS=[
+ ['The version of me I want to show (persona)','In this relationship, what do I most want to be seen as? For example: reasonable, strong, caring, independent, useful, desirable, calm.'],
+ ['The version of me I fear showing','What do I most fear my partner might see me as?'],
+ ['Parts I find hard to own (shadow)','Which quality in my partner gets under my skin most strongly? Is there any part of that quality, or its opposite, that is hard for me to own in myself?'],
+ ['What I may be adding to my partner (projection)','When conflict gets intense, who does my partner become in my mind? A judge, critic, controller, child, rejecter, helpless person, authority, stranger, or something else?'],
+ ['My role','Who do I become in response? A fixer, defendant, pursuer, withdrawer, teacher, judge, rescuer, child, or something else?'],
+ ['Old emotional pattern (complex)','What familiar emotional situation does this conflict seem to recreate for me?'],
+ ['What is happening inside me','What feeling am I trying to make my partner remove from me: helplessness, shame, uncertainty, loneliness, fear, anger, inadequacy, or something else?'],
+ ['Separate my partner from my added meaning','What belongs clearly to my partner, and what meaning might I have added?'],
+ ['Return to the real issue','After separating the fear, role, and projection from the event, what real relationship issue still remains?'],
+ ['My own growth task (individuation)','What may be mine to carry, integrate, or change rather than asking my partner to solve it for me?']
+];
+const EPISODE_PROMPTS=[
+ ['1. What happened?','Describe only what an outside observer could have seen or heard.'],
+ ['2. What did I feel first?','Name the first feeling and any body reaction.'],
+ ['3. What did I decide it meant?','Write the story your mind added.'],
+ ['4. What did my partner say they meant?','If you know, write their stated meaning. If you do not know, write "I do not know."'],
+ ['5. What supports or challenges my interpretation?','What facts support your story? What facts do not fit it?'],
+ ['6. What role did I move into?','For example: pursue, withdraw, defend, fix, globalize, judge, rescue.'],
+ ['7. What softer fear or need was underneath?','For example: to matter, to be understood, to be safe, to be accepted, to have space, to feel competent.'],
+ ['8. What did my response bring out in my partner?','Describe the next step in the loop without claiming to know their hidden motive.'],
+ ['9. What belongs to me?','What reaction, assumption, projection, or behavior is mine to work on?'],
+ ['10. What real relationship issue remains?','After removing the extra meaning, what still needs repair, change, acceptance, or a boundary?']
+];
+const CONTEXT_ITEMS=['Different cultural or national backgrounds','Religion or worldview','Different expectations about extended family','Children or parenting responsibilities','Financial or class differences','Different gender-role expectations','Different expectations about monogamy or relationship structure','Migration or living away from family','Neurodivergence','Disability or chronic illness','Major career or work-location decisions','Different expectations about privacy and independence'];
+const FREQ_LABELS=['Almost never','Rarely','Sometimes','Often','Almost always'];
+const STRESS_LABELS=['None','A little','Some','Quite a lot','A lot'];
+let coreIndex=0,myScores=null,myToken='',lastDecodedPartner=null;
 
-const TOTAL=sections.reduce((n,s)=>n+s.items.length,0);
-const answers=Array(TOTAL).fill(null),safety=Array(safetyQuestions.length).fill(null);
-let myScores=null,myToken='';
-const esc=s=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0;
-const pct5=v=>(v-1)/4*100,avgPct=a=>pct5(avg(a)),round=v=>Math.round(v);
-
-function renderSafety(){
- const root=document.getElementById('safetyItems');
- safetyQuestions.forEach((q,i)=>{const d=document.createElement('div');d.className='safety-item';d.innerHTML=`<strong>${i+1}. ${esc(q)}</strong><div class="yn"><label><input type="radio" name="s${i}" value="0" data-s="${i}">No</label><label><input type="radio" name="s${i}" value="1" data-s="${i}">Yes</label></div>`;root.appendChild(d)});
- root.addEventListener('change',e=>{if(e.target.matches('input[data-s]')){safety[Number(e.target.dataset.s)]=Number(e.target.value);updateSafety()}});
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function avg(a){const v=a.filter(x=>Number.isFinite(x));return v.length?v.reduce((s,x)=>s+x,0)/v.length:null}
+function fmt(v){return Number.isFinite(v)?v.toFixed(1)+'/5':'Not completed'}
+function barPct(v){return Number.isFinite(v)?Math.max(0,Math.min(100,(v-1)/4*100)):0}
+function getChecked(name){const e=document.querySelector(`input[name="${name}"]:checked`);return e?Number(e.value):null}
+function scoreByMetric(prefix,source){const out={};source.forEach((item,i)=>{const metric=item[1],v=getChecked(prefix+i);if(!out[metric])out[metric]=[];if(v!==null)out[metric].push(v)});const scores={};Object.entries(out).forEach(([k,v])=>scores[k]=avg(v));return scores}
+function scoreCore(){const buckets={};let q=0;CORE_SECTIONS.forEach(sec=>sec.items.forEach(item=>{const v=getChecked('c'+q);if(!buckets[item[1]])buckets[item[1]]=[];if(v!==null)buckets[item[1]].push(v);q++}));const out={};Object.entries(buckets).forEach(([k,v])=>out[k]=avg(v));return out}
+function coreAnswered(){let n=0;for(let i=0;i<57;i++)if(getChecked('c'+i)!==null)n++;return n}
+function updateProgress(){const n=coreAnswered(),pct=Math.round(n/57*100);document.getElementById('progressText').textContent=`${n} / 57 core questions answered`;document.getElementById('progressBar').style.width=pct+'%';document.getElementById('progressPct').textContent=pct+'%'}
+function radioScale(name,left,right,labels=FREQ_LABELS){let h=`<div class="likert"><div class="pole">${esc(left)}</div>`;for(let i=1;i<=5;i++)h+=`<label title="${esc(labels[i-1])}"><input type="radio" name="${name}" value="${i}"><span class="choice">${i}</span></label>`;h+=`<div class="pole right">${esc(right)}</div></div><div class="anchor-line"><span>${esc(labels[0])}</span><span>${esc(labels[2])}</span><span>${esc(labels[4])}</span></div>`;return h}
+function renderCore(){const root=document.getElementById('coreAssessment');let q=0;root.innerHTML=CORE_SECTIONS.map(sec=>{let h=`<section class="card section"><div class="section-head"><div><div class="kicker">Core assessment</div><h2>${esc(sec.title)}</h2><p class="section-note">${esc(sec.note)}</p></div><span class="tag">${sec.kind==='relationship'?'My view of us':'My own pattern'}</span></div>`;sec.items.forEach(item=>{h+=`<div class="question"><div class="qtext"><span class="qnum">${++q}.</span>${esc(item[0])}</div>${radioScale('c'+(q-1),'','')}</div>`});return h+'</section>'}).join('');root.addEventListener('change',updateProgress)}
+function renderOptional(){
+ let t='<section class="card section"><div class="section-head"><div><div class="kicker">Optional module</div><h2>Processing style</h2><p class="section-note">This is inspired by Jungian typology. It describes communication preferences; it does not assign a personality type.</p></div></div>';
+ TYPOLOGY_ITEMS.forEach((it,i)=>{t+=`<div class="question"><div class="qtext">${i+1}. ${esc(it[0])}</div>${radioScale('t'+i,it[1],it[2],['Strongly left','Leans left','In between','Leans right','Strongly right'])}</div>`});document.getElementById('typologyModule').innerHTML=t+'</section>';
+ let x='<section class="card section"><div class="section-head"><div><div class="kicker">Optional module</div><h2>Intimacy and sexuality</h2><p class="section-note">Answer for the last 8 weeks. Desire can change with health, medication, hormones, pain, fatigue, stress, parenthood, ageing, and life stage. Not every sexual difference is psychological.</p></div></div>';
+ INTIMACY_ITEMS.forEach((it,i)=>{x+=`<div class="question"><div class="qtext">${i+1}. ${esc(it[0])}</div>${radioScale('i'+i,'','')}</div>`});document.getElementById('intimacyModule').innerHTML=x+'</section>';
+ let s='<section class="card section"><div class="section-head"><div><div class="kicker">Optional context</div><h2>External stress</h2><p class="section-note">How much strain has each area placed on you or the relationship during the last 8 weeks? This score is shown as context and is never treated as poor teamwork.</p></div></div>';
+ STRESS_ITEMS.forEach((it,i)=>{s+=`<div class="question"><div class="qtext">${i+1}. ${esc(it[0])}</div>${radioScale('e'+i,'','',STRESS_LABELS)}</div>`});document.getElementById('stressModule').innerHTML=s+'</section>';
+ document.getElementById('contextModule').innerHTML=`<section class="card section"><div class="kicker">Optional context</div><h2>Culture and life context</h2><p class="section-note">Tick anything that may shape what closeness, duty, privacy, family, gender, money, or independence mean in your relationship. These are not problems by themselves and are not scored or shared.</p><div class="context-list">${CONTEXT_ITEMS.map((x,i)=>`<label><input type="checkbox" name="ctx${i}">${esc(x)}</label>`).join('')}</div><div class="prompt" style="margin-top:12px"><label for="ctxNote">Anything else that changes the context?</label><textarea id="ctxNote" placeholder="Optional"></textarea></div></section>`
 }
-function safetyState(){if(safety.some(v=>v===null))return 'incomplete';if(safety.some(v=>v===1))return 'flag';return 'clear'}
-function updateSafety(){
- const state=safetyState(),el=document.getElementById('safetyStatus');el.className='callout';
- if(state==='incomplete'){el.classList.add('warn');el.innerHTML='<strong>Incomplete.</strong> Complete all items privately before generating a shareable capsule.'}
- else if(state==='flag'){el.classList.add('risk');el.innerHTML='<strong>Safety concern flagged.</strong> Do not use the couple-comparison feature as a substitute for confidential professional assessment. Joint disclosure can be unsafe where fear, coercive control, violence, sexual coercion, stalking, or retaliation are present. If you are in immediate danger, contact local emergency services. In Australia, 1800RESPECT is available on 1800 737 732.'}
- else{el.classList.add('good');el.innerHTML='<strong>No safety concern was flagged in this brief screen.</strong> This does not prove that a relationship is safe; it only means these specific items were answered No.'}
- updateTokenAvailability();
+function renderTextPrompts(){document.getElementById('jungPrompts').innerHTML=JUNG_PROMPTS.map((p,i)=>`<div class="prompt"><label for="j${i}">${esc(p[0])}</label><div class="small">${esc(p[1])}</div><textarea id="j${i}" placeholder="Optional notes"></textarea></div>`).join('');document.getElementById('episodePrompts').innerHTML=EPISODE_PROMPTS.map((p,i)=>`<div class="prompt"><label for="ep${i}">${esc(p[0])}</label><div class="small">${esc(p[1])}</div><textarea id="ep${i}" placeholder="Write a few sentences"></textarea></div>`).join('')}
+function toggleModule(id){document.getElementById(id).classList.toggle('hidden')}
+function metricRow(label,v,note=''){return `<div class="score-row"><div><strong>${esc(label)}</strong><div class="bar"><i style="width:${barPct(v)}%"></i></div>${note?`<div class="metric-note">${esc(note)}</div>`:''}</div><div class="score-value">${fmt(v)}</div></div>`}
+function rankMetrics(scores,defs){return defs.map(d=>({label:d[0],v:scores[d[1]]})).filter(x=>Number.isFinite(x.v)).sort((a,b)=>b.v-a.v)}
+function calculateMine(){if(coreAnswered()<57){alert('Please answer all 57 core questions before building the map.');return}myScores=buildScoreObject();renderIndividual(myScores);document.getElementById('individual').classList.remove('hidden');document.getElementById('individual').scrollIntoView({behavior:'smooth'})}
+function optionalScores(){const out={};const tv=TYPOLOGY_ITEMS.map((_,i)=>getChecked('t'+i));if(tv.every(v=>v!==null)){['IE','TF','SN','Tempo'].forEach(k=>{const vals=TYPOLOGY_ITEMS.map((it,i)=>it[3]===k?tv[i]:null).filter(v=>v!==null);out['style_'+k]=avg(vals)})}
+ const iv=INTIMACY_ITEMS.map((_,i)=>getChecked('i'+i));if(iv.every(v=>v!==null)){const b={};INTIMACY_ITEMS.forEach((it,i)=>{if(!b[it[1]])b[it[1]]=[];b[it[1]].push(iv[i])});Object.entries(b).forEach(([k,v])=>out['intimacy_'+k]=avg(v))}
+ const ev=STRESS_ITEMS.map((_,i)=>getChecked('e'+i));if(ev.every(v=>v!==null))out.externalLoad=avg(ev);return out}
+function buildScoreObject(){return {...scoreCore(),...optionalScores()}}
+function frequencyPhrase(v){if(!Number.isFinite(v))return '';if(v<1.8)return 'reported rarely';if(v<2.8)return 'reported rarely to sometimes';if(v<3.6)return 'reported around sometimes';if(v<4.4)return 'reported often';return 'reported very often'}
+function renderIndividual(s){const rel=[['Closeness','closeness'],['Feeling heard','heard'],['Repair as experienced','dyadicRepair'],['Confidence in the relationship','future'],['Warmth and enjoyment','affection'],['Interest in each other','interest'],['Practical teamwork','teamwork'],['Shared direction','meaning']];const skills=[['Listening before answering','listen'],['Checking meaning','clarify'],['Staying specific','specificity'],['Allowing two viewpoints','perspective'],['Directly asking for needs','directNeed'],['Naming vulnerability','vulnerability'],['Regulating arousal','regulate'],['Returning after a pause','return'],['Taking responsibility','apology'],['Receiving repair','receiveRepair'],['Accepting differences','acceptance'],['Tolerating difference','difference'],['Using boundaries cleanly','boundaries']];const roles=[['Pursuing / pressing','pursue'],['Withdrawing / delaying','withdraw'],['Defending / countering','defend'],['Fixing / solving','fix'],['Global or fatalistic conclusions','globalize'],['Alarm about disconnection','anxiety'],['Creating distance under emotional pressure','distance']];const roleRank=rankMetrics(s,roles).slice(0,4);const resRank=rankMetrics(s,skills).slice(0,4);let opt='';if(Number.isFinite(s.style_IE))opt+=`<div class="callout"><strong>Processing style module:</strong> ${styleSentence(s)}</div>`;if(Number.isFinite(s.intimacy_sexTalk))opt+=`<h3 style="margin-top:18px">Intimacy module</h3><div class="score-card">${metricRow('Talking about sex and desire',s.intimacy_sexTalk)}${metricRow('Consent and sexual boundaries',s.intimacy_consent)}${metricRow('Talking about desire differences',s.intimacy_desireTalk)}${metricRow('Using sexual desire as reassurance',s.intimacy_sexSecurity,'Higher means this happened more often; it is not a diagnosis.')}</div>`;if(Number.isFinite(s.externalLoad))opt+=`<div class="callout"><strong>External load:</strong> ${fmt(s.externalLoad)}. This is context, not a relationship quality score.</div>`;
+ document.getElementById('individualSummary').innerHTML=`<div class="callout neutral"><strong>How to read this:</strong> Each number is your average response from 1 to 5. It simply tells you how often you reported that experience. Compare patterns; do not treat a number as a clinical label.</div><h3>How I experience the relationship</h3><div class="score-card">${rel.map(d=>metricRow(d[0],s[d[1]])).join('')}</div><h3 style="margin-top:18px">My communication and repair resources</h3><div class="score-card">${skills.map(d=>metricRow(d[0],s[d[1]])).join('')}</div><h3 style="margin-top:18px">Protective roles I may enter under stress</h3><div class="score-card">${roles.map(d=>metricRow(d[0],s[d[1]],frequencyPhrase(s[d[1]]))).join('')}</div><div class="grid" style="margin-top:15px"><div class="span-6 callout"><strong>Most often endorsed resources</strong><div class="badges" style="margin-top:8px">${resRank.map(x=>`<span class="badge">${esc(x.label)} ${x.v.toFixed(1)}</span>`).join('')}</div></div><div class="span-6 callout"><strong>Stress roles to explore first</strong><div class="badges" style="margin-top:8px">${roleRank.map(x=>`<span class="badge">${esc(x.label)} ${x.v.toFixed(1)}</span>`).join('')}</div><p class="small">These are simply the highest items in your own profile. They are not proof that something is a problem and they are not diagnoses.</p></div></div>${opt}`}
+function styleSentence(s){const side=(v,a,b)=>v<2.6?a:v>3.4?b:'flexible / in between';return `${side(s.style_IE,'more private reflection','more talk-it-through processing')}; ${side(s.style_TF,'more logic/consistency first','more value/impact first')}; ${side(s.style_SN,'more concrete detail first','more pattern/possibility first')}; ${side(s.style_Tempo,'more immediate discussion','more reflection time first')}.`}
+function getProfileKey(){return document.getElementById('profileKey').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8)}
+function newProfileKey(){const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';try{const a=new Uint32Array(6);crypto.getRandomValues(a);for(const n of a)s+=chars[n%chars.length]}catch{for(let i=0;i<6;i++)s+=chars[Math.floor(Math.random()*chars.length)]}document.getElementById('profileKey').value=s;return s}
+const METRICS=['closeness','heard','dyadicRepair','future','affection','interest','teamwork','meaning','listen','clarify','specificity','perspective','directNeed','anxiety','distance','vulnerability','pursue','withdraw','defend','fix','globalize','regulate','return','apology','receiveRepair','acceptance','difference','boundaries','style_IE','style_TF','style_SN','style_Tempo','intimacy_sexTalk','intimacy_consent','intimacy_desireTalk','intimacy_sexSecurity','externalLoad'];
+function packScore(v){return Number.isFinite(v)?Math.round(v*10):0}
+function unpackScore(v){return v?Number(v)/10:null}
+function fnv1a(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(36).toUpperCase().slice(-6)}
+function b64urlEncode(str){return btoa(unescape(encodeURIComponent(str))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function b64urlDecode(str){str=str.replace(/-/g,'+').replace(/_/g,'/');while(str.length%4)str+='=';return decodeURIComponent(escape(atob(str)))}
+function encodeCapsule(scores,key){const obj={v:2,k:key,s:METRICS.map(m=>packScore(scores[m]))};const raw=JSON.stringify(obj),body=b64urlEncode(raw);return `CDM2-${body}-${fnv1a(body)}`}
+function decodeCapsule(token){const t=token.trim();const m=t.match(/^CDM2-([A-Za-z0-9_-]+)-([A-Z0-9]+)$/i);if(!m)throw new Error('This does not look like a CDM2 Share Code.');if(fnv1a(m[1])!==m[2].toUpperCase())throw new Error('The Share Code check did not match. It may have been copied incorrectly.');const o=JSON.parse(b64urlDecode(m[1]));if(o.v!==2||!o.k||!Array.isArray(o.s)||o.s.length!==METRICS.length)throw new Error('This Share Code is not compatible with this version.');const scores={};METRICS.forEach((k,i)=>scores[k]=unpackScore(o.s[i]));return{key:String(o.k),scores}}
+function createToken(){if(coreAnswered()<57){alert('Please answer all 57 core questions first.');return}myScores=buildScoreObject();let key=getProfileKey();if(key.length<4){key=newProfileKey()}myToken=encodeCapsule(myScores,key);document.getElementById('myToken').value=myToken}
+function validatePartner(){const raw=document.getElementById('partnerToken').value.trim();if(!raw){document.getElementById('tokenStatus').textContent='';return null}try{const d=decodeCapsule(raw);lastDecodedPartner=d;document.getElementById('tokenStatus').textContent=`Valid CDM2 Share Code with profile key ${d.key}.`;return d}catch(e){document.getElementById('tokenStatus').textContent=e.message;return null}}
+function profileOrder(a,b){return a.key.localeCompare(b.key)}
+function compareTable(rows,a,b){return `<div class="compare"><div class="compare-row compare-head"><div>Area</div><div>Myself</div><div>My Partner</div><div>Gap</div></div>${rows.map(r=>{const av=a[r[1]],bv=b[r[1]],gap=Number.isFinite(av)&&Number.isFinite(bv)?Math.abs(av-bv):null;return `<div class="compare-row"><div>${esc(r[0])}</div><div>${Number.isFinite(av)?av.toFixed(1):'–'}</div><div>${Number.isFinite(bv)?bv.toFixed(1):'–'}</div><div>${Number.isFinite(gap)?gap.toFixed(1):'–'}</div></div>`}).join('')}</div>`}
+function largestGaps(rows,a,b,n=4){return rows.map(r=>({label:r[0],key:r[1],a:a[r[1]],b:b[r[1]],gap:Number.isFinite(a[r[1]])&&Number.isFinite(b[r[1]])?Math.abs(a[r[1]]-b[r[1]]):-1})).filter(x=>x.gap>=0).sort((x,y)=>y.gap-x.gap).slice(0,n)}
+function ruleHit(v){return Number.isFinite(v)&&v>=3.5}
+function ruleLow(v){return Number.isFinite(v)&&v<=2.8}
+function cycleRules(a,b){const out=[];function add(title,why,q){out.push({title,why,q})}
+ if((ruleHit(a.pursue)&&ruleHit(b.withdraw))||(ruleHit(b.pursue)&&ruleHit(a.withdraw)))add('Pursue ↔ withdraw','One profile often presses harder for engagement while the other often creates distance when conflict rises.','Can the pursuer make one clear request and pause, while the withdrawer gives a clear return time instead of disappearing?');
+ if((ruleHit(a.pursue)&&ruleHit(b.defend))||(ruleHit(b.pursue)&&ruleHit(a.defend)))add('Press ↔ defend','One profile often intensifies a concern while the other often explains, justifies, or counters before the concern feels heard.','Can the defender reflect the concern first, and can the pursuer stop adding new evidence once the concern has been understood?');
+ if((ruleHit(a.anxiety)&&ruleHit(b.distance))||(ruleHit(b.anxiety)&&ruleHit(a.distance)))add('Connection alarm ↔ distance','One profile often becomes alarmed by disconnection while the other often seeks distance under emotional pressure.','Can closeness be asked for directly, and can space be given with a reliable plan to reconnect?');
+ if((ruleHit(a.fix)&&ruleLow(b.heard))||(ruleHit(b.fix)&&ruleLow(a.heard)))add('Solve ↔ be understood','One profile often moves quickly to solutions while the other reports feeling less heard in the relationship.','Before solving, can the listener ask: "Do you want understanding, ideas, or action?"');
+ if((ruleHit(a.globalize)&&ruleHit(b.pursue))||(ruleHit(b.globalize)&&ruleHit(a.pursue)))add('Globalize ↔ press','One profile often jumps from the current issue to the future of the relationship while the other often presses the issue harder when not understood.','Can both stay with the present behavior before discussing compatibility or the future?');
+ if((ruleLow(a.perspective)&&ruleLow(b.perspective)))add('Certainty loop','Both profiles report difficulty keeping room for the possibility that the other mind may be different from what they assume.','Can each person state one fact, one interpretation, and one thing they still do not know?');
+ return out}
+function individualFocus(s){const possible=[['Listen before explaining','listen','low','Try reflecting the concern in one sentence before giving your reasons.'],['Check meaning before assuming','clarify','low','Ask one clarifying question before deciding what the other person meant.'],['Stay with the specific issue','specificity','low','Keep the conversation on one behavior or event before moving to a pattern.'],['Leave room for two minds','perspective','low','Use "I may be wrong, but I am reading this as..."'],['Ask directly for closeness','directNeed','low','Name the need instead of testing the relationship.'],['Name the softer feeling','vulnerability','low','Try naming fear, hurt, loneliness, shame, or helplessness before arguing the position.'],['Regulate before continuing','regulate','low','Notice when you are no longer thinking clearly and slow the pace.'],['Return after a pause','return','low','If you need space, give a time to come back.'],['Take responsibility without self-attack','apology','low','Name the behavior and its effect without turning it into a verdict on your whole character.'],['Receive repair','receiveRepair','low','Notice attempts to de-escalate even if the issue is not solved.'],['Pursuing under stress','pursue','high','Make one clear request, then allow time for a response.'],['Withdrawing under stress','withdraw','high','Ask for space without disappearing; give a return time.'],['Defending under stress','defend','high','Delay explanation until the concern has been accurately heard.'],['Fixing under stress','fix','high','Ask whether the other person wants listening, thinking together, or action.'],['Globalizing under stress','globalize','high','Keep behavior, identity, compatibility, and breakup as separate questions.'],['Alarm about disconnection','anxiety','high','Ask for reassurance directly instead of treating uncertainty as proof of danger.'],['Creating distance under emotional pressure','distance','high','Name the need for space while also signaling continued connection.']];let hits=[];possible.forEach(x=>{const v=s[x[1]];if(!Number.isFinite(v))return;if((x[2]==='low'&&v<=2.8)||(x[2]==='high'&&v>=3.5))hits.push({label:x[0],v,kind:x[2],text:x[3]})});return hits.slice(0,4)}
+function sharedFocus(a,b){
+ const out=[];const bothLow=(k)=>Number.isFinite(a[k])&&Number.isFinite(b[k])&&a[k]<=3.2&&b[k]<=3.2;
+ if(bothLow('dyadicRepair'))out.push(['Repair','Build a simple pause-and-return rule and agree on what a repair attempt looks like.']);
+ if(bothLow('heard'))out.push(['Feeling heard','Use a rule: understand first, explain second, solve third.']);
+ if(bothLow('teamwork'))out.push(['Teamwork','Name the practical problem and divide tasks before interpreting it as a relationship failure.']);
+ if(bothLow('affection'))out.push(['Ordinary connection','Protect small moments of warmth, attention, humor, and affection that are not about fixing the relationship.']);
+ if(bothLow('meaning'))out.push(['Shared direction','Talk about what you are trying to build together and where your expectations differ.']);
+ if(bothLow('future'))out.push(['Relationship confidence','Keep current problems and the long-term verdict separate. Ask what can be learned before deciding what the relationship means.']);
+ return out.slice(0,4)
 }
-
-function renderQuestions(){
- const root=document.getElementById('questionSections');let idx=0;
- sections.forEach((sec,si)=>{const wrap=document.createElement('section');wrap.className='card section-card';let html=`<div class="section-head"><div><div class="section-kicker">Section ${si+1} of ${sections.length}</div><h2>${esc(sec.title)}</h2><p class="section-note">${esc(sec.note)}</p></div></div>`;
- sec.items.forEach(item=>{const qi=idx++,qn=qi+1;let text,left,right;if(Array.isArray(item)){[text,left,right]=item}else{text=item;left='Strongly disagree';right='Strongly agree'}html+=`<div class="question"><div class="qtext"><span class="qnum">${qn}.</span>${esc(text)}</div><div class="likert"><div class="pole">${esc(left)}</div>`;for(let v=1;v<=5;v++)html+=`<label><input type="radio" name="q${qi}" value="${v}" data-q="${qi}"><span class="choice">${v}</span></label>`;html+=`<div class="pole right">${esc(right)}</div></div></div>`});wrap.innerHTML=html;root.appendChild(wrap)});
- root.addEventListener('change',e=>{if(e.target.matches('input[data-q]')){answers[Number(e.target.dataset.q)]=Number(e.target.value);updateProgress()}});
+function renderCouple(mine,partner){
+ const a=mine.scores,b=partner.scores;
+ const dyadic=[['Closeness','closeness'],['Feeling heard','heard'],['Repair as experienced','dyadicRepair'],['Confidence in relationship','future'],['Warmth and enjoyment','affection'],['Interest in each other','interest'],['Practical teamwork','teamwork'],['Shared direction','meaning']];
+ const capacities=[['Listen before answering','listen'],['Check meaning','clarify'],['Stay with the specific issue','specificity'],['Allow two viewpoints','perspective'],['Ask directly for needs','directNeed'],['Name softer feelings','vulnerability'],['Regulate before continuing','regulate'],['Return after a pause','return'],['Take responsibility','apology'],['Receive repair','receiveRepair'],['Accept some differences','acceptance'],['Tolerate different preferences','difference'],['Use boundaries without punishment','boundaries']];
+ const stressRoles=[['Alarm about disconnection','anxiety'],['Create distance under pressure','distance'],['Pursue / press','pursue'],['Withdraw / delay','withdraw'],['Defend / counter','defend'],['Fix / solve','fix'],['Global / fatalistic conclusions','globalize']];
+ const gaps=largestGaps(dyadic,a,b,4),cycles=cycleRules(a,b),fa=individualFocus(a),fb=individualFocus(b),shared=sharedFocus(a,b);
+ let style='';if(Number.isFinite(a.style_IE)&&Number.isFinite(b.style_IE)){style=`<h3 style="margin-top:20px">Processing style differences</h3><p class="small">These are Jung-inspired communication preferences, not personality types.</p>${compareTable([['Private reflection ↔ talk-it-through','style_IE'],['Logic/consistency ↔ value/impact','style_TF'],['Detail ↔ pattern','style_SN'],['Talk now ↔ reflect first','style_Tempo']],a,b)}`}
+ let intimacy='';if(Number.isFinite(a.intimacy_sexTalk)&&Number.isFinite(b.intimacy_sexTalk)){intimacy=`<h3 style="margin-top:20px">Intimacy and sexuality</h3>${compareTable([['Talking about sex and desire','intimacy_sexTalk'],['Consent and boundaries','intimacy_consent'],['Talking about desire differences','intimacy_desireTalk'],['Using sexual desire as reassurance','intimacy_sexSecurity']],a,b)}<p class="small">The last row is different: a higher number means that desire was more often used as reassurance about love, worth, or security.</p>`}
+ let stress='';if(Number.isFinite(a.externalLoad)||Number.isFinite(b.externalLoad))stress=`<div class="callout"><strong>External load is context, not poor teamwork.</strong> Myself: ${fmt(a.externalLoad)}. My Partner: ${fmt(b.externalLoad)}. A couple can face heavy outside pressure and still work well together.</div>`;
+ document.getElementById('coupleSummary').innerHTML=`
+ <div class="callout neutral">This map is shown from your point of view: <strong>Myself</strong> means the assessment completed on this device, and <strong>My Partner</strong> means the Share Code you imported. Your partner will see the same relationship data from their own point of view.</div>
+ <div class="grid"><div class="span-6 score-card"><div class="profile-tag">Myself · key ${esc(mine.key)}</div><p>${profileSentence(a)}</p></div><div class="span-6 score-card"><div class="profile-tag">My Partner · key ${esc(partner.key)}</div><p>${profileSentence(b)}</p></div></div>
+ <h3 style="margin-top:20px">How each person experiences the relationship</h3>${compareTable(dyadic,a,b)}
+ <h3 style="margin-top:20px">Largest differences in experience</h3><p class="small">These are simply the biggest gaps between the two profiles. A gap does not tell you which person is right.</p>${gaps.map(g=>`<div class="insight"><strong>${esc(g.label)}</strong><br>Myself: ${g.a.toFixed(1)} / 5. My Partner: ${g.b.toFixed(1)} / 5. Gap: ${g.gap.toFixed(1)}.<br><span class="small">Question: What does each person see, feel, or count as evidence in this area?</span></div>`).join('')}
+ <h3 style="margin-top:20px">How each person tends to handle difficult conversations</h3>${compareTable(capacities,a,b)}
+ <h3 style="margin-top:20px">Protective roles under stress</h3><p class="small">Here, a higher number means the role was reported more often. These are not diagnoses.</p>${compareTable(stressRoles,a,b)}
+ <h3 style="margin-top:20px">Interaction loops worth testing</h3>${cycles.length?cycles.map(c=>`<div class="insight soft"><strong>${esc(c.title)}</strong><br>${esc(c.why)}<br><span class="small"><strong>Try asking:</strong> ${esc(c.q)}</span></div>`).join(''):'<div class="callout">No common interaction loop was strongly surfaced by the simple rules in this version. Use the conflict episode mapper with a real disagreement instead.</div>'}
+ <h3 style="margin-top:20px">Individual work suggested by each profile</h3><div class="grid"><div class="span-6 score-card"><div class="profile-tag">Myself</div>${fa.length?fa.map(x=>`<div class="insight"><strong>${esc(x.label)}</strong><br>${esc(x.text)}</div>`).join(''):'<p>No single individual pattern met the tool\'s simple surfacing rules. Use the highest personal stress-role scores as discussion prompts.</p>'}</div><div class="span-6 score-card"><div class="profile-tag">My Partner</div>${fb.length?fb.map(x=>`<div class="insight"><strong>${esc(x.label)}</strong><br>${esc(x.text)}</div>`).join(''):'<p>No single individual pattern met the tool\'s simple surfacing rules. Use the highest personal stress-role scores as discussion prompts.</p>'}</div></div>
+ <h3 style="margin-top:20px">Possible shared work</h3><p class="small">An area appears here only when both profiles report it as a lower-frequency relationship resource. A one-sided concern belongs in the perception-gap section above.</p>${shared.length?shared.map(x=>`<div class="insight"><strong>${esc(x[0])}</strong><br>${esc(x[1])}</div>`).join(''):'<div class="callout">No shared area stood out using the tool\'s simple rules. Focus on the largest perception gaps or map a real conflict episode.</div>'}
+ ${stress}${style}${intimacy}
+ <div class="callout" style="margin-top:18px"><strong>Jungian next step:</strong> Choose one conflict and ask: What actually happened? What meaning did I add? Who did my partner become in my mind? Who did I become in response? What part may be mine to integrate? What real relationship issue remains after that?</div>`;
+ document.getElementById('couple').classList.remove('hidden');document.getElementById('couple').scrollIntoView({behavior:'smooth'})
 }
-function updateProgress(){const n=answers.filter(v=>v!==null).length,pct=Math.round(n/TOTAL*100);document.getElementById('progressText').textContent=`${n} / ${TOTAL} answered`;document.getElementById('progressPct').textContent=`${pct}%`;document.getElementById('progressBar').style.width=`${pct}%`;document.getElementById('scoreBtn').disabled=n!==TOTAL;document.getElementById('finishMsg').textContent=n===TOTAL?'All items answered. Calculate your individual dynamic map.':`Answer all ${TOTAL} items to calculate your map.`}
-function sliceSections(vals){let pos=0,out={};for(const s of sections){out[s.key]=vals.slice(pos,pos+s.items.length);pos+=s.items.length}return out}
-function computeScores(vals){const s=sliceSections(vals);return{
- IE:avgPct(s.typology.slice(0,3)),TF:avgPct(s.typology.slice(3,6)),SN:avgPct(s.typology.slice(6,9)),Tempo:avgPct(s.typology.slice(9,12)),
- ego:avgPct(s.ego),mental:avgPct(s.mental),shadow:avgPct(s.shadow),projection:avgPct(s.projection.slice(0,4)),hijack:avgPct(s.projection.slice(4,8)),
- bond:avgPct([s.attachment[0],s.attachment[1],s.attachment[6],s.attachment[7]]),attachAnx:avgPct(s.attachment.slice(2,4)),attachDist:avgPct(s.attachment.slice(4,6)),
- pursue:avgPct(s.cycle.slice(0,2)),withdraw:avgPct(s.cycle.slice(2,4)),defend:avgPct(s.cycle.slice(4,6)),fix:avgPct(s.cycle.slice(6,8)),fatalize:avgPct(s.cycle.slice(8,10)),
- repair:avgPct(s.repair),acceptance:avgPct(s.acceptance),positive:avgPct(s.positive),intimacy:avgPct(s.intimacy),meaning:avgPct(s.meaning),externalLoad:avgPct(s.context.slice(0,3)),teamwork:avgPct(s.context.slice(3,6)),individuation:avgPct(s.individuation)
-}}
-const scoreOrder=['IE','TF','SN','Tempo','ego','mental','shadow','projection','hijack','bond','attachAnx','attachDist','pursue','withdraw','defend','fix','fatalize','repair','acceptance','positive','intimacy','meaning','externalLoad','teamwork','individuation'];
-function band(score,kind='capacity'){if(kind==='risk'){if(score<35)return['Low','good'];if(score<65)return['Moderate','warn'];return['High','risk']}if(score<35)return['Low','risk'];if(score<65)return['Moderate','warn'];return['High','good']}
-function barCard(title,score,desc,kind='capacity'){const [lab,cls]=band(score,kind);return `<div class="score-card"><div class="score-title"><strong>${esc(title)}</strong><span class="pill ${cls}">${lab} - ${round(score)}</span></div><div class="bar ${kind==='risk'?'risk':''}"><i style="width:${score}%"></i></div><div class="small">${esc(desc)}</div></div>`}
-function bipolarCard(title,score,left,right){return `<div class="score-card"><div class="score-title"><strong>${esc(title)}</strong><span class="pill">${round(score)} / 100</span></div><div class="bar"><i style="width:${score}%"></i></div><div class="small" style="display:flex;justify-content:space-between"><span>${esc(left)}</span><span>${esc(right)}</span></div></div>`}
-function pillarScores(s){return{
- Connection:avg([s.bond,s.positive,s.intimacy,s.meaning]),
- Conversation:avg([s.ego,s.mental,s.repair]),
- Regulation:avg([100-s.hijack,100-s.fatalize,s.repair]),
- Differentiation:avg([s.acceptance,s.individuation,s.mental]),
- Teamwork:avg([s.teamwork,100-s.externalLoad])
-}}
-function renderPillars(p){return `<div class="pillar-grid">${Object.entries(p).map(([k,v])=>`<div class="pillar"><div class="small">${esc(k)}</div><div class="num">${round(v)}</div><div class="bar"><i style="width:${v}%"></i></div></div>`).join('')}</div>`}
-function renderIndividual(s){const p=pillarScores(s);document.getElementById('individualSummary').innerHTML=`
- <div class="callout"><strong>Read patterns, not verdicts.</strong> Scores are original indices from this tool, not validated clinical cutoffs. Use high or low areas to select concrete interactions to examine.</div>
- <h3 style="margin-top:18px">Five system pillars</h3>${renderPillars(p)}
- <h3 style="margin-top:20px">Typology and tempo</h3><div class="score-grid">${bipolarCard('Introversion to Extraversion',s.IE,'Introverted processing','Extraverted processing')}${bipolarCard('Thinking to Feeling',s.TF,'Thinking emphasis','Feeling emphasis')}${bipolarCard('Sensation to Intuition',s.SN,'Sensation emphasis','Intuition emphasis')}${bipolarCard('Immediate to Reflective tempo',s.Tempo,'Immediate','Reflective')}</div>
- <h3 style="margin-top:20px">Jungian and reflective dynamics</h3><div class="score-grid">${barCard('Ego-to-ego communication',s.ego,'Specific, conscious communication that can hold disagreement.')}${barCard('Mentalization',s.mental,'Curiosity about two minds and uncertainty about motives.')}${barCard('Persona-shadow pressure',s.shadow,'Pressure to defend a preferred identity or disown unwanted traits.','risk')}${barCard('Projection load',s.projection,'How readily the actual partner becomes mixed with inferred motives and feared meanings.','risk')}${barCard('Complex hijacking',s.hijack,'How quickly a familiar emotional pattern narrows the conversation.','risk')}${barCard('Individuation',s.individuation,'Connection plus separateness, uncertainty, responsibility, and repair.')}</div>
- <h3 style="margin-top:20px">Attachment and conflict cycle</h3><div class="score-grid">${barCard('Secure bond capacity',s.bond,'Direct need expression and responsive engagement.')}${barCard('Attachment anxiety activation',s.attachAnx,'Alarm and reassurance-seeking when disconnection is sensed.','risk')}${barCard('Attachment distancing',s.attachDist,'Self-protective distance when emotional dependency or intensity rises.','risk')}${barCard('Pursue / press',s.pursue,'Increasing pressure when engagement or acknowledgement feels insufficient.','risk')}${barCard('Withdraw / delay',s.withdraw,'Creating distance, silence, or delay under conflict pressure.','risk')}${barCard('Defend / counter',s.defend,'Explaining, justifying, correcting, or countering before full acknowledgement.','risk')}${barCard('Fix / solve',s.fix,'Moving toward solutions when the other may first need understanding.','risk')}${barCard('Fatalize / globalize',s.fatalize,'Moving from a specific issue to global conclusions about the relationship.','risk')}</div>
- <h3 style="margin-top:20px">Protective capacities and context</h3><div class="score-grid">${barCard('Regulation and repair',s.repair,'De-escalation, apology, return, repair, and recovery.')}${barCard('Acceptance and differentiation',s.acceptance,'Balancing change, acceptance, boundaries, and psychological separateness.')}${barCard('Positive bond',s.positive,'Warmth, appreciation, interest, affection, and everyday connection.')}${barCard('Intimacy and sexuality',s.intimacy,'Consent, communication, affection, desire differences, and non-evaluative intimacy.')}${barCard('Shared meaning and commitment',s.meaning,'Values, long-term orientation, rituals, and a shared "why."')}${barCard('External stress load',s.externalLoad,'Pressure from outside the relationship spilling into the relationship.','risk')}${barCard('Teamwork under stress',s.teamwork,'Practical coordination and ability to distinguish stress from relationship failure.')}</div>`;
+function profileSentence(s){
+ const roles=rankMetrics(s,[['pursuing or pressing','pursue'],['withdrawing or delaying','withdraw'],['defending or countering','defend'],['fixing or solving','fix'],['global or fatalistic thinking','globalize']]).slice(0,2).map(x=>x.label);
+ return `Under stress, the more often endorsed roles were ${roles.length?roles.join(' and '):'not clearly differentiated'}. Relationship repair was reported at ${fmt(s.dyadicRepair)}, and feeling heard at ${fmt(s.heard)}.`
 }
+function combine(){createToken();if(!myToken)return;const other=validatePartner();if(!other)return;const mine=decodeCapsule(myToken);if(mine.key===other.key){document.getElementById('tokenStatus').textContent='The two Share Codes use the same profile key. Create a new key for one person and make that Share Code again.';return}renderCouple(mine,other)}
+function buildEpisode(){const vals=EPISODE_PROMPTS.map((_,i)=>document.getElementById('ep'+i).value.trim());if(vals.every(v=>!v)){return}document.getElementById('episodeSummary').innerHTML=`<strong>Episode summary</strong><ol>${vals.map((v,i)=>`<li><b>${esc(EPISODE_PROMPTS[i][0].replace(/^\d+\.\s*/,''))}</b>: ${esc(v||'(not entered)')}</li>`).join('')}</ol><p><strong>Choose the next task:</strong> repair, concrete change, a boundary, or acceptance of a real difference. More than one may apply.</p>`;document.getElementById('episodeSummary').classList.remove('hidden')}
+function clearEpisode(){EPISODE_PROMPTS.forEach((_,i)=>document.getElementById('ep'+i).value='');document.getElementById('episodeSummary').classList.add('hidden')}
+function clearTextGroup(id){document.querySelectorAll('#'+id+' textarea').forEach(x=>x.value='')}
+function clearCore(){document.querySelectorAll('#coreAssessment input[type=radio]').forEach(x=>x.checked=false);myScores=null;myToken='';document.getElementById('myToken').value='';document.getElementById('individual').classList.add('hidden');document.getElementById('couple').classList.add('hidden');updateProgress()}
+function clearPartner(){document.getElementById('partnerToken').value='';document.getElementById('tokenStatus').textContent='';document.getElementById('couple').classList.add('hidden');lastDecodedPartner=null}
+function clearAll(){if(!confirm('Clear all answers and notes on this page?'))return;document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(x=>x.checked=false);document.querySelectorAll('textarea').forEach(x=>x.value='');document.querySelectorAll('input[type=text]').forEach(x=>x.value='');myScores=null;myToken='';lastDecodedPartner=null;document.getElementById('individual').classList.add('hidden');document.getElementById('couple').classList.add('hidden');document.getElementById('episodeSummary').classList.add('hidden');newProfileKey();updateProgress()}
+function quickHide(){document.getElementById('quickHideScreen').classList.remove('hidden');document.title='Notes';window.scrollTo(0,0)}
 
-function updateTokenAvailability(){const ready=!!myScores&&safetyState()==='clear';document.getElementById('copyTokenBtn').disabled=!ready;document.getElementById('combineBtn').disabled=!ready;if(myScores){if(safetyState()==='clear'){myToken=encodeCapsule(myScores);document.getElementById('myToken').textContent=myToken}else{myToken='';document.getElementById('myToken').textContent=safetyState()==='flag'?'Couple capsule disabled because a private safety concern was flagged.':'Complete the private safety gate to generate a capsule.'}}}
-function calculateMine(){if(answers.some(v=>v===null))return;myScores=computeScores(answers);renderIndividual(myScores);document.getElementById('individual').classList.remove('hidden');updateTokenAvailability();document.getElementById('individual').scrollIntoView({behavior:'smooth'})}
-
-const ALPH='0123456789abcdefghijklmnopqrstuvwxyz';
-function checksum(str){let h=2166136261>>>0;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)>>>0}return(h>>>0).toString(36).padStart(7,'0')}
-function two36(n){const v=Math.max(0,Math.min(100,Math.round(n)));return ALPH[Math.floor(v/36)]+ALPH[v%36]}
-function fromTwo36(s){if(s.length!==2)throw new Error('Bad score chunk');const a=ALPH.indexOf(s[0].toLowerCase()),b=ALPH.indexOf(s[1].toLowerCase());if(a<0||b<0)throw new Error('Bad score chunk');const v=a*36+b;if(v>100)throw new Error('Score out of range');return v}
-function encodeCapsule(s){const body=scoreOrder.map(k=>two36(s[k])).join('');const core=`CDM1-${body}`;return `${core}-${checksum(core)}`}
-function decodeCapsule(token){const t=token.trim().replace(/\s+/g,'');const m=t.match(/^CDM1-([0-9a-z]{50})-([0-9a-z]{7})$/i);if(!m)throw new Error('Capsule format is not valid.');const core=`CDM1-${m[1].toLowerCase()}`;if(checksum(core)!==m[2].toLowerCase())throw new Error('Checksum failed. The capsule may have been copied incorrectly.');const out={};scoreOrder.forEach((k,i)=>out[k]=fromTwo36(m[1].slice(i*2,i*2+2)));return out}
-function profileSort(a,b){return a.token.localeCompare(b.token)}
-function compareRow(label,a,b){return `<div class="compare-row"><strong>${esc(label)}</strong><div class="dualbar"><i class="a" style="width:${a}%"></i><i class="b" style="width:${b}%"></i></div><span class="mono">A ${round(a)}</span><span class="mono">B ${round(b)}</span></div>`}
-function typologyText(k,v){const d={IE:['Introverted processing','Extraverted processing'],TF:['Thinking emphasis','Feeling emphasis'],SN:['Sensation emphasis','Intuition emphasis'],Tempo:['Immediate tempo','Reflective tempo']}[k];if(v<40)return d[0];if(v>60)return d[1];return 'Balanced / context-dependent'}
-function mean2(a,b,k){return(a[k]+b[k])/2}function gap(a,b,k){return Math.abs(a[k]-b[k])}
-function couplePillars(a,b){const pa=pillarScores(a),pb=pillarScores(b),out={};Object.keys(pa).forEach(k=>out[k]=(pa[k]+pb[k])/2);return out}
-function cycleHypotheses(a,b){const c=[];const add=(score,title,msg)=>c.push({score,title,msg});
- add(Math.max(a.pursue*b.withdraw,b.pursue*a.withdraw)/100,'Pursue and withdraw','One person may increase pressure for engagement while the other creates distance. Each move can confirm the other person\'s fear and intensify the cycle.');
- add(Math.max(a.pursue*b.defend,b.pursue*a.defend)/100,'Press and defend','One person presses for acknowledgement while the other explains, corrects, or counters. More defense invites more pressure; more pressure invites more defense.');
- add(Math.max(a.attachAnx*b.attachDist,b.attachAnx*a.attachDist)/100,'Attachment alarm and distance','One person\'s alarm about disconnection may meet the other\'s self-protective distance, creating a bond-threat loop.');
- add(Math.max(a.fix*b.TF,b.fix*a.TF)/100,'Solve and be understood','A strong fixing style may collide with a partner who first organizes conflict through relational meaning and impact.');
- add(Math.max(a.fatalize*b.pursue,b.fatalize*a.pursue)/100,'Globalize and press','A specific complaint may escalate into a forecast about the entire relationship while the other person keeps pressing the original point.');
- add(((a.projection+b.projection+a.hijack+b.hijack)/4),'Projection and complex amplification','Both partners may be reacting partly to the present event and partly to larger meanings, familiar fears, or identity threats activated by it.');
- return c.sort((x,y)=>y.score-x.score).slice(0,4)}
-function collisionInsights(a,b){const out=[];const typeData=[['IE','Processing orientation','Different inward versus outward processing styles can make talking feel like pressure to one person and silence feel like withdrawal to the other.'],['TF','Thinking-Feeling emphasis','One may first ask whether the account is accurate while the other first asks what the interaction meant or did to the bond.'],['SN','Sensation-Intuition emphasis','One may stay with the concrete event while the other moves quickly to pattern, implication, or future.'],['Tempo','Conversation tempo','Different processing speeds need an explicit pause-and-return agreement.']];typeData.forEach(([k,t,m])=>{const g=gap(a,b,k);if(g>=30)out.push({score:g,title:t,msg:m})});
- if(mean2(a,b,'repair')<50)out.push({score:100-mean2(a,b,'repair'),title:'Repair channel',msg:'Repair, de-escalation, and return may need more explicit structure.'});
- if(mean2(a,b,'mental')<50)out.push({score:100-mean2(a,b,'mental'),title:'Mentalization under stress',msg:'Motives may become too certain during conflict. Recovering "I may be wrong about what is happening in your mind" is a leverage point.'});
- if(mean2(a,b,'positive')<50)out.push({score:100-mean2(a,b,'positive'),title:'Positive relationship base',msg:'Conflict may be occupying too much of the relationship relative to warmth, interest, play, and appreciation.'});
- if(mean2(a,b,'externalLoad')>65)out.push({score:mean2(a,b,'externalLoad'),title:'External load',msg:'Some relationship distress may be stress transfer rather than evidence of a relational defect.'});
- return out.sort((x,y)=>y.score-x.score).slice(0,5)}
-function practices(a,b){const p=[];const push=(score,title,text)=>p.push({score,title,text});
- if(gap(a,b,'Tempo')>=25||gap(a,b,'IE')>=25)push(90,'Pause with a return point','The person needing space names how long they need and exactly when the conversation resumes. The other person agrees not to pursue during the pause unless safety or logistics require it.');
- if(gap(a,b,'TF')>=25)push(85,'Facts, impact, need','Handle the same issue in three passes: what happened, what impact or meaning it had, and what is requested now. Do not force factual accuracy to cancel impact or impact to settle factual disagreement.');
- if(Math.max(a.pursue*b.withdraw,b.pursue*a.withdraw)/100>=45)push(95,'Interrupt pursue-withdraw','The pursuer reduces repetition and accusation; the withdrawer stays relationally present and commits to a return time. The target is the cycle, not either person.');
- if(Math.max(a.pursue*b.defend,b.pursue*a.defend)/100>=45)push(93,'Reflect before explaining','Before defense or context, the listener summarizes the complaint until the speaker says it is accurate. Explanation comes second.');
- if(Math.max(a.attachAnx*b.attachDist,b.attachAnx*a.attachDist)/100>=40)push(92,'Name the bond fear directly','Replace protest or distance with the softer message underneath: fear of not mattering, fear of being controlled, fear of failing, need for reassurance, or need for space without abandonment.');
- if(mean2(a,b,'projection')>=55||mean2(a,b,'hijack')>=55)push(91,'Fact, story, fear','Each person writes one sentence for observable fact, one for the story they added, and one for the feared implication. Only then discuss the relationship issue.');
- if(mean2(a,b,'shadow')>=55)push(88,'Behavior is not identity','Describe the behavior and its impact before making character claims. Each person asks which disowned trait or threatened self-image made the criticism hard to bear.');
- if(mean2(a,b,'repair')<55)push(90,'Repair sequence','Stop escalation, summarize the other view, own one concrete contribution, state one need, agree on one next behavior, and return to ordinary contact when ready.');
- if(mean2(a,b,'acceptance')<55)push(82,'Sort change, acceptance, boundary','For a recurring problem, separately identify what can be changed, what may need acceptance or management, and what would cross a real boundary.');
- if(mean2(a,b,'positive')<55)push(80,'Rebuild ordinary connection','Increase small moments of attention, appreciation, affection, humor, shared activity, and interest in each other that are not contingent on solving a problem.');
- if(mean2(a,b,'intimacy')<55)push(78,'Separate intimacy from evaluation','Discuss affection, sex, desire, and consent outside a sexual moment. Do not use desire level as a proxy for love, adequacy, or commitment.');
- if(mean2(a,b,'externalLoad')>60&&mean2(a,b,'teamwork')<65)push(84,'Name stress before blaming the bond','Before interpreting tension as a relationship failure, identify external load, depleted capacity, and practical burdens. Decide what can be redistributed.');
- if(mean2(a,b,'meaning')<55)push(75,'Clarify the shared why','Discuss what commitment, partnership, autonomy, family, work, intimacy, and growth are meant to serve. Agreement is less important than explicitness.');
- if(mean2(a,b,'individuation')<55)push(86,'Practice connected separateness','Allow disappointment, disagreement, and uncertainty without turning them immediately into a verdict on love or compatibility.');
- return p.sort((x,y)=>y.score-x.score).slice(0,6)}
-function riskProtective(a,b){const risks=[['Projection and hijack',avg([a.projection,b.projection,a.hijack,b.hijack]),'risk'],['Attachment alarm',avg([a.attachAnx,b.attachAnx,a.attachDist,b.attachDist]),'risk'],['Cycle escalation',avg([a.pursue,b.pursue,a.withdraw,b.withdraw,a.defend,b.defend,a.fatalize,b.fatalize]),'risk'],['External load',mean2(a,b,'externalLoad'),'risk']].sort((x,y)=>y[1]-x[1]).slice(0,3);const strengths=[['Repair',mean2(a,b,'repair')],['Mentalization',mean2(a,b,'mental')],['Positive bond',mean2(a,b,'positive')],['Acceptance',mean2(a,b,'acceptance')],['Teamwork',mean2(a,b,'teamwork')],['Individuation',mean2(a,b,'individuation')]].sort((x,y)=>y[1]-x[1]).slice(0,3);return{risks,strengths}}
-function renderCouple(p1,p2,myWhich){const a=p1.scores,b=p2.scores,pill=couplePillars(a,b),cycles=cycleHypotheses(a,b),collisions=collisionInsights(a,b),prac=practices(a,b),rp=riskProtective(a,b);document.getElementById('coupleSummary').innerHTML=`
- <div class="callout">This device's completed assessment is <strong>Profile ${myWhich}</strong>. Profile labels are assigned by capsule sort order, not by gender, status, or who answered first. The same two capsules always generate the same map.</div>
- <h3 style="margin-top:18px">Couple system pillars</h3>${renderPillars(pill)}
- <h3 style="margin-top:20px">Profiles at a glance</h3><div class="grid"><div class="span-6 score-card"><div class="profile-tag">Profile A</div><h3>${typologyText('IE',a.IE)} - ${typologyText('TF',a.TF)}</h3><p class="small">${typologyText('SN',a.SN)} - ${typologyText('Tempo',a.Tempo)}</p><div class="badges"><span class="badge">Pursue ${round(a.pursue)}</span><span class="badge">Withdraw ${round(a.withdraw)}</span><span class="badge">Defend ${round(a.defend)}</span><span class="badge">Fix ${round(a.fix)}</span><span class="badge">Fatalize ${round(a.fatalize)}</span></div></div><div class="span-6 score-card"><div class="profile-tag">Profile B</div><h3>${typologyText('IE',b.IE)} - ${typologyText('TF',b.TF)}</h3><p class="small">${typologyText('SN',b.SN)} - ${typologyText('Tempo',b.Tempo)}</p><div class="badges"><span class="badge">Pursue ${round(b.pursue)}</span><span class="badge">Withdraw ${round(b.withdraw)}</span><span class="badge">Defend ${round(b.defend)}</span><span class="badge">Fix ${round(b.fix)}</span><span class="badge">Fatalize ${round(b.fatalize)}</span></div></div></div>
- <h3 style="margin-top:20px">Processing and communication differences</h3><div class="score-card">${compareRow('I to E',a.IE,b.IE)}${compareRow('T to F',a.TF,b.TF)}${compareRow('S to N',a.SN,b.SN)}${compareRow('Tempo',a.Tempo,b.Tempo)}${compareRow('Ego-to-ego',a.ego,b.ego)}${compareRow('Mentalization',a.mental,b.mental)}${compareRow('Repair',a.repair,b.repair)}</div>
- <h3 style="margin-top:20px">Jungian unconscious field</h3><div class="score-card">${compareRow('Shadow pressure',a.shadow,b.shadow)}${compareRow('Projection',a.projection,b.projection)}${compareRow('Complex hijack',a.hijack,b.hijack)}${compareRow('Individuation',a.individuation,b.individuation)}</div>
- <h3 style="margin-top:20px">Attachment and cycle positions</h3><div class="score-card">${compareRow('Secure bond',a.bond,b.bond)}${compareRow('Anxiety activation',a.attachAnx,b.attachAnx)}${compareRow('Distancing',a.attachDist,b.attachDist)}${compareRow('Pursue',a.pursue,b.pursue)}${compareRow('Withdraw',a.withdraw,b.withdraw)}${compareRow('Defend',a.defend,b.defend)}${compareRow('Fix',a.fix,b.fix)}${compareRow('Fatalize',a.fatalize,b.fatalize)}</div>
- <h3 style="margin-top:20px">Relationship resources and context</h3><div class="score-card">${compareRow('Acceptance',a.acceptance,b.acceptance)}${compareRow('Positive bond',a.positive,b.positive)}${compareRow('Intimacy',a.intimacy,b.intimacy)}${compareRow('Shared meaning',a.meaning,b.meaning)}${compareRow('External load',a.externalLoad,b.externalLoad)}${compareRow('Teamwork',a.teamwork,b.teamwork)}</div>
- <h3 style="margin-top:20px">Likely dynamic loops to test</h3>${cycles.map(x=>`<div class="insight ${x.score>=65?'risk':x.score>=45?'warn':''}"><strong>${esc(x.title)}</strong><br>${esc(x.msg)}</div>`).join('')}
- <h3 style="margin-top:20px">Collision points</h3>${collisions.length?collisions.map(x=>`<div class="insight warn"><strong>${esc(x.title)}</strong><br>${esc(x.msg)}</div>`).join(''):'<div class="callout">No single collision dominates the profile. Use a real conflict episode to see where the interaction shifts.</div>'}
- <h3 style="margin-top:20px">Protective factors and pressure points</h3><div class="matrix"><div class="cell"><strong>Stronger shared resources</strong>${rp.strengths.map(x=>`<div>${esc(x[0])}: ${round(x[1])}</div>`).join('')}</div><div class="cell"><strong>Higher shared pressure</strong>${rp.risks.map(x=>`<div>${esc(x[0])}: ${round(x[1])}</div>`).join('')}</div></div>
- <h3 style="margin-top:20px">Highest-leverage practices</h3>${prac.map((x,i)=>`<div class="insight"><strong>${i+1}. ${esc(x.title)}</strong><br>${esc(x.text)}</div>`).join('')}
- <div class="callout" style="margin-top:16px"><strong>Use the map as a hypothesis generator.</strong> Choose one actual disagreement and ask: What happened? What did each person infer? What did each person fear or need? Which role did each person enter? What did that evoke in the other? What part is intrapsychic, what part is a real relational issue, and what repair or boundary follows?</div>`;
- document.getElementById('couple').classList.remove('hidden');document.getElementById('couple').scrollIntoView({behavior:'smooth'})}
-function validatePartner(){const raw=document.getElementById('partnerToken').value;if(!raw.trim()){document.getElementById('tokenStatus').textContent='';return null}try{const s=decodeCapsule(raw);document.getElementById('tokenStatus').textContent='Valid CDM1 capsule.';return s}catch(e){document.getElementById('tokenStatus').textContent=e.message;return null}}
-function combine(){if(safetyState()!=='clear'){document.getElementById('tokenStatus').textContent='Couple comparison is disabled unless the private safety screen is complete with no flagged item.';return}if(!myToken||!myScores){document.getElementById('tokenStatus').textContent='Complete your own assessment first.';return}const ps=validatePartner();if(!ps)return;const pt=encodeCapsule(ps);if(pt===myToken){document.getElementById('tokenStatus').textContent='This is the same capsule as your own.';return}const profiles=[{token:myToken,scores:myScores,isMine:true},{token:pt,scores:ps,isMine:false}].sort(profileSort);renderCouple(profiles[0],profiles[1],profiles[0].isMine?'A':'B')}
-
-function buildEpisode(){const vals=[1,2,3,4,5,6,7,8].map(i=>document.getElementById('ep'+i).value.trim());if(vals.every(v=>!v))return;document.getElementById('episodeSummary').innerHTML=`<strong>Episode map</strong><ol><li><b>Observable trigger:</b> ${esc(vals[0]||'(not entered)')}</li><li><b>Primary reaction:</b> ${esc(vals[1]||'(not entered)')}</li><li><b>Meaning added:</b> ${esc(vals[2]||'(not entered)')}</li><li><b>Role / defense:</b> ${esc(vals[3]||'(not entered)')}</li><li><b>Vulnerable fear or need:</b> ${esc(vals[4]||'(not entered)')}</li><li><b>Partner response:</b> ${esc(vals[5]||'(not entered)')}</li><li><b>What belongs to me:</b> ${esc(vals[6]||'(not entered)')}</li><li><b>Real relationship issue that remains:</b> ${esc(vals[7]||'(not entered)')}</li></ol><p><strong>Next question:</strong> What is the smallest concrete repair, request, boundary, or acceptance task that follows from this map?</p>`;document.getElementById('episodeSummary').classList.remove('hidden')}
-
-renderSafety();renderQuestions();updateProgress();updateSafety();
+renderCore();renderOptional();renderTextPrompts();newProfileKey();updateProgress();
 document.getElementById('scoreBtn').addEventListener('click',calculateMine);
-document.getElementById('copyTokenBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(myToken);const b=document.getElementById('copyTokenBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy my capsule',1200)}catch{window.prompt('Copy this capsule:',myToken)}});
-document.getElementById('partnerToken').addEventListener('input',validatePartner);document.getElementById('combineBtn').addEventListener('click',combine);document.getElementById('clearPartnerBtn').addEventListener('click',()=>{document.getElementById('partnerToken').value='';document.getElementById('tokenStatus').textContent='';document.getElementById('couple').classList.add('hidden')});document.getElementById('buildEpisode').addEventListener('click',buildEpisode);document.getElementById('clearEpisode').addEventListener('click',()=>{for(let i=1;i<=8;i++)document.getElementById('ep'+i).value='';document.getElementById('episodeSummary').classList.add('hidden')});
+document.getElementById('makeTokenBtn').addEventListener('click',createToken);
+document.getElementById('copyTokenBtn').addEventListener('click',async()=>{createToken();if(!myToken)return;try{await navigator.clipboard.writeText(myToken);const b=document.getElementById('copyTokenBtn');b.textContent='Copied';setTimeout(()=>b.textContent='Copy Share Code',1200)}catch{window.prompt('Copy this Share Code:',myToken)}});
+document.getElementById('partnerToken').addEventListener('input',validatePartner);
+document.getElementById('combineBtn').addEventListener('click',combine);
+document.getElementById('buildEpisode').addEventListener('click',buildEpisode);
 </script>
 </body>
 </html>
