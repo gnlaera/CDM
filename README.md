@@ -1,4 +1,4 @@
-# Couple Dynamic Map (CDM2)
+# Couple Dynamic Map (CDM)
 
 Couple Dynamic Map is a private, browser-based relationship self-exploration tool for two partners.
 
@@ -25,7 +25,7 @@ It is not a substitute for professional couples therapy, psychotherapy, medical 
 
 The results should be treated as prompts for discussion and reflection, not as facts or verdicts.
 
-## What CDM2 is designed to answer
+## What CDM is designed to answer
 
 The tool does not ask:
 
@@ -96,7 +96,7 @@ Scores are descriptive only.
 
 ## Couple comparison
 
-After both partners complete the core assessment, each person can generate a CDM2 Share Code.
+After both partners complete the core assessment, each person can generate a CDM Share Code.
 
 The Share Code contains summarized core scores, summary results from any optional scored modules you complete, and any culture and life-context factors you choose to tick.
 
@@ -223,7 +223,7 @@ Can I tolerate difference, uncertainty, disappointment, and imperfection without
 
 ## Other therapeutic frameworks
 
-CDM2 also draws on several established relationship frameworks.
+CDM also draws on several established relationship frameworks.
 
 ### Attachment theory
 
@@ -286,7 +286,7 @@ The tool looks at whether partners can:
 
 ## Safety checklist
 
-At the very end of the page, CDM2 includes a collapsed **Safety checklist**.
+At the very end of the page, CDM includes a collapsed **Safety checklist**.
 
 It is not a questionnaire and does not record any safety answers.
 
@@ -321,7 +321,7 @@ The tool does not assume every problem is 50/50.
 
 ## Optional modules
 
-CDM2 includes optional deeper sections. Each one opens directly below its **Open** button. If you start a scored optional module, complete all of its questions before creating a Share Code so its result can be included consistently.
+CDM includes optional deeper sections. Each one opens directly below its **Open** button. If you start a scored optional module, complete all of its questions before creating a Share Code so its result can be included consistently.
 
 When both partners complete the same optional module, the couple map compares the two results. If only one person completes it, the combined map says that there is not enough information for a two-person comparison.
 
@@ -512,7 +512,7 @@ The **Quick hide** control can move away from the tool quickly, but it does not 
 
 ## Technical design
 
-CDM2 is a single self-contained HTML file.
+CDM is a single self-contained HTML file.
 
 It uses:
 
