@@ -109,9 +109,11 @@ It does **not** contain:
 - Jungian reflection notes
 - conflict-mapping notes
 
-Each partner can exchange their Share Code and paste both into the Couple Map section.
+Each partner can exchange their Share Code. To build the Couple Map, place your own Share Code in the first box and your partner's Share Code in the second box. If you are still on the page where you completed the questionnaire, the tool can create your own code automatically. If you return later, you can paste a Share Code you saved earlier instead of retaking the questionnaire.
 
-The tool then creates a locally oriented comparison on each device. Your own results appear as **Myself**, and the imported Share Code appears as **My Partner**. Your partner sees the same underlying relationship data from their own point of view.
+The tool then creates a locally oriented comparison on each device. Your own Share Code appears as **Myself**, and the second Share Code appears as **My Partner**. Your partner sees the same underlying relationship data from their own point of view.
+
+The two boxes must contain Share Codes from two different profiles. Pasting the same Share Code into both boxes will show a clear message rather than building a meaningless self-comparison.
 
 A stable random profile key is kept in the background as a technical identifier for continuity across future reassessments. It is not used as the main label shown to the couple.
 
